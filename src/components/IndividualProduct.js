@@ -34,6 +34,12 @@ export default function IndividualProduct() {
         }
         fetch();
     }, [])
+    
+    async function addToCart(){
+        const response = await axios.post(BASE_URL + "/api/shoppingcart/1/" + product_id + "/add")
+        setLoaded(true)
+
+    }
 
 
     if (loaded === false) {
@@ -46,6 +52,7 @@ export default function IndividualProduct() {
         
                 <h1>Cinnamon Roll: {name}</h1>
                 <p>Description: {description}</p>
+                <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
             </React.Fragment>
         )
     }

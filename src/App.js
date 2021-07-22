@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React from 'react';
 import Landing from "./components/Landing";
 import ProductListing from "./components/ProductListing";
-import IndividualProduct from "./components/IndividualProduct"
+import IndividualProduct from "./components/IndividualProduct";
+import ShoppingCart from "./components/ShoppingCart";
+import Login from "./components/Login";
+import LoginContext from "./components/LoginContext";
 import axios from "axios";
 
 import config from "./config"
@@ -24,18 +27,12 @@ function App() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/products">Products</Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/login">Login</Link>
                         </li>
-
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/shoppingcart">Shopping Cart</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -50,6 +47,12 @@ function App() {
                 </Route>
                 <Route exact path="/products/:product_id">
                     <IndividualProduct />
+                </Route>
+                <Route exact path ='/login'>
+                    <Login />
+                </Route>
+                <Route exact path="/shoppingcart">
+                    <ShoppingCart />
                 </Route>
             </Switch>
         </Router>
