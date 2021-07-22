@@ -9,6 +9,7 @@ import IndividualProduct from "./components/IndividualProduct";
 import ShoppingCart from "./components/ShoppingCart";
 import Login from "./components/Login";
 import LoginContext from "./components/LoginContext";
+import CreateAccount from './components/CreateAccount';
 import axios from "axios";
 
 import config from "./config"
@@ -31,6 +32,9 @@ function App() {
                             <Link className="nav-link" to="/login">Login</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/register">Create Account</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/shoppingcart">Shopping Cart</Link>
                         </li>
                     </ul>
@@ -50,6 +54,9 @@ function App() {
                 </Route>
                 <Route exact path ='/login'>
                     <Login />
+                </Route>
+                <Route exact path ='/register'>
+                    <CreateAccount />
                 </Route>
                 <Route exact path="/shoppingcart">
                     <ShoppingCart />

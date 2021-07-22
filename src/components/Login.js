@@ -1,15 +1,22 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import axios from "axios"
-import { useHistory, Link } from "react-router-dom"
+import { useHistory, Link, useLocation } from "react-router-dom"
 import LoginContext from "./LoginContext"
 import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function Login() {
+    let query = new URLSearchParams(useLocation().search);
     const history = useHistory();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     let context = useContext(LoginContext)
+
+    useEffect(() => {
+        if(query.get("email")){
+            setEmail(query.get("email"));
+        }
+    }, [])
 
     async function login(){
         const response = await axios.post(BASE_URL + "/api/users/login/", {
