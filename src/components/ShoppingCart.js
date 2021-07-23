@@ -49,7 +49,7 @@ export default function ShoppingCart() {
             <React.Fragment>
                 <h1> Shopping Cart</h1>
                 <div>{renderCart()}</div>
-                <button>Checkout</button>
+                <button className = "btn btn-primary">Checkout</button>
             </React.Fragment>
         )
     }
