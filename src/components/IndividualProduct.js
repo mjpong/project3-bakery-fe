@@ -11,6 +11,8 @@ export default function IndividualProduct() {
     const history = useHistory();
 
     const [loaded, setLoaded] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [added, setAdded] = useState(false);
     const [name, setName] = useState("");
     const [cost, setCost] = useState(0);
     const [description, setDescription] = useState("");
@@ -36,8 +38,16 @@ export default function IndividualProduct() {
     }, [])
     
     async function addToCart(){
-        const response = await axios.post(BASE_URL + "/api/shoppingcart/1/" + product_id + "/add")
-        setLoaded(true)
+
+        if (localStorage.getItem("id") == null) {
+            setLoggedIn(false)
+            history.push("/login")
+        } else if (localStorage.getItem("id") !== null ) {
+            setLoggedIn(true)
+            const response = await axios.post(BASE_URL + "/api/shoppingcart/" + localStorage.getItem("id") + "/" + product_id + "/add")
+            setAdded(true)
+            setLoaded(true)
+        }
 
     }
 
@@ -53,6 +63,9 @@ export default function IndividualProduct() {
                 <h1>Cinnamon Roll: {name}</h1>
                 <p>Description: {description}</p>
                 <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+                <p className="item-added"
+                    style={{display: added === true ? "block" : "none"}}> 
+                    Item has been added to your shopping cart</p>
             </React.Fragment>
         )
     }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import config from "../config"
 const BASE_URL = config.BASE_URL
 
@@ -12,13 +12,14 @@ export default function ShoppingCart() {
 
     useEffect(() => {
         const fetch = async () => {
-            const response = await axios.get(BASE_URL + "/api/shoppingcart/" + 1)
+            const response = await axios.get(BASE_URL + "/api/shoppingcart/" + localStorage.getItem("id"))
             setShoppingCartItem(response.data)
             setLoaded(true)
-            console.log(response.data)
+            
         }
         fetch()
     }, [])
+
 
     const renderCart = () => {
         let list = []
@@ -39,17 +40,22 @@ export default function ShoppingCart() {
         }
         return list
     }
+    
+    const checkOut = () => {
+        <Link to="/checkout"></Link>
+    }
 
     if (loaded === false) {
         return (
-            <p> Loading ... </p>
+            <p>Loading ... </p>
         )
     } else {
         return (
             <React.Fragment>
                 <h1> Shopping Cart</h1>
                 <div>{renderCart()}</div>
-                <button className = "btn btn-primary">Checkout</button>
+                
+                <Link to="/checkout"> <button className = "btn btn-primary">Checkout </button></Link>
             </React.Fragment>
         )
     }

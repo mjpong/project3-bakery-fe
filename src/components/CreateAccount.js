@@ -30,6 +30,7 @@ export default function CreateAccount() {
     const createAccount = async () => {
         const response = await axios.post(BASE_URL + '/api/users/register', formState)
         if (response.data !== "Unable to create user") {
+            setRegisterState(true)
             history.push("/login?email=" + formState.email)
         } else {
             setRegisterState(false)

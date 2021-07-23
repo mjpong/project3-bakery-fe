@@ -5,6 +5,7 @@ import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function Order() {
+    // useEffect()
     return (
         <React.Fragment>
             <h1>Order Page</h1>

@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import LoginContext from "./components/LoginContext";
 import CreateAccount from './components/CreateAccount';
 import Order from "./components/Order";
+import CreateOrder from "./components/CreateOrder"
 
 import config from "./config"
 const BASE_URL = config.BASE_URL
@@ -83,32 +84,32 @@ function App() {
         <React.Fragment>
             <Router>
                 <nav className="navbar">
-                    <div className="logo col-3">
+                    <div className="logo row">
                         <Link className="navbar-brand" style={{ display: "flex", width: "150px", height: "150px" }} to="/">
                             <img src={require("./RollWithMe.png").default} alt="logo" />
                         </Link>
                     </div>
-                    <div className="link col-9">
+                    <div className="row">
                         <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
-                        <Link className="nav-link" 
-                                style={{ display: loggedIn === false ? "block" : "none"}}
-                                to="/register">Create Account</Link>
-                        <Link className="nav-link" 
-                                style={{ display: loggedIn === false ? "block" : "none"}}
-                                to="/login">Login</Link>
-                        <Link className="nav-link" 
-                                style= {{ display: loggedIn === true ? "block" : "none"}}
-                                onClick={logoutUser} 
-                                to="/">Logout</Link>
-                        <Link className="nav-link" 
-                                style= {{ display: loggedIn === true ? "block" : "none"}}
-                                to="/shoppingcart">Shopping Cart</Link>
-                        <Link className="nav-link" 
-                                style= {{ display: loggedIn === true ? "block" : "none"}}
-                                to="/order">My Orders</Link>
-                        
-                    </div>
+                    
+                        <Link className="nav-link"
+                            style={{ display: loggedIn === false ? "block" : "none" }}
+                            to="/register">Create Account</Link>
+                        <Link className="nav-link"
+                            style={{ display: loggedIn === false ? "block" : "none" }}
+                            to="/login">Login</Link>
+                        <Link className="nav-link"
+                            style={{ display: loggedIn === true ? "block" : "none" }}
+                            onClick={logoutUser}
+                            to="/">Logout</Link>
+                        <Link className="nav-link"
+                            style={{ display: loggedIn === true ? "block" : "none" }}
+                            to="/shoppingcart">Shopping Cart</Link>
+                        <Link className="nav-link"
+                            style={{ display: loggedIn === true ? "block" : "none" }}
+                            to="/order">My Orders</Link>
 
+                    </div>
                 </nav>
 
 
@@ -138,7 +139,44 @@ function App() {
                     <Route exact path="/order">
                         <Order />
                     </Route>
+                    <Route exact path="/checkout">
+                        <CreateOrder />
+                    </Route>
                 </Switch>
+
+                {/* <hr></hr>
+                <div className="footer row">
+                    <section className="footer-left col-4">
+                        <p className="left-header">Quick Links</p>
+                        <ul className="link-list">
+                            <li className="footer-link">
+                                <Link to="/products">Cinnamon Rolls</Link>
+                            </li>
+                        </ul>
+                    </section>
+                    <section className="footer-center col-4">
+                        <Link className="footer-logo" style={{ display: "flex", width: "150px", height: "150px" }} to="/">
+                            <img src={require("./RollWithMe.png").default} alt="logo" />
+                        </Link>
+                    </section>
+                    <section className="footer-right col-4">
+                        <p className="right-header">Contact Us</p>
+                        <ul className="link-list">
+                            <li>
+                                Phone
+                            </li>
+                            <li>
+                                Email
+                            </li>
+                            <li>
+                                Whatsapp
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+ */}
+
             </Router>
 
         </React.Fragment>

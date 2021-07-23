@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto&display=swap');
 
-body {
+#root {
     font-family: 'Roboto', sans-serif;
+    background-color: #FDF8F0;
+}
+
+body{
+    background-color: #FDF8F0;
 }
 h1 {
 
