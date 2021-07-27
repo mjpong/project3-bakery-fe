@@ -26,11 +26,14 @@ function App() {
 
     useEffect(() => {
         setInterval(async () => {
-            const response = await axios.post(BASE_URL + "/api/users/refresh", {
-                "refreshToken": localStorage.getItem("refreshToken"),
-            })
-            localStorage.setItem('accessToken', response.data.accessToken)
-        }, 10 * 60 * 1000)
+            let refreshToken = localStorage.getItem("refreshToken");
+            if (refreshToken) {
+                const response = await axios.post(BASE_URL + "/api/users/refresh", {
+                    refreshToken
+                })
+                localStorage.setItem('accessToken', response.data.accessToken)
+            }
+        }, config.REFRESH_INTERVAL)
     }, [])
 
     //see if there is a token in local storage

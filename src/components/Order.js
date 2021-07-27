@@ -5,6 +5,10 @@ import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function Order() {
+
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [orders, setOrders] = useState([])
+
     // useEffect()
     return (
         <React.Fragment>

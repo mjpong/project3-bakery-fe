@@ -20,7 +20,6 @@ export default function CreateOrder() {
             console.log(response.data)
             setName(response.data.name);
             setAddress(response.data.address)
-            
         }
         fetch()
     }, [])
@@ -47,7 +46,9 @@ export default function CreateOrder() {
                         onChange={(e) => setAddress(e.target.value)}>
                         </input>
             </div>
-            <button className="btn btn-primary">Confirm</button>
+           <a href={`${BASE_URL}/api/checkout/` + localStorage.getItem("id") + "?token=" + localStorage.getItem('accessToken') + "&address=" + address + "&name=" + name }> 
+                <button className="btn btn-primary">Checkout</button>
+            </a>
         </React.Fragment>
     )
 
