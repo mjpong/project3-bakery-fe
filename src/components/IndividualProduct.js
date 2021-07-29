@@ -33,24 +33,27 @@ export default function IndividualProduct() {
             setFlavor(response.data.flavor)
             setTopping(response.data.toppings)
             setImage(response.data.image)
+            console.log(response.data)
         }
         fetch();
     }, [])
     
-    async function addToCart(){
-
+    const addToCart = async (product_id) => {
         if (localStorage.getItem("id") == null) {
             setLoggedIn(false)
             history.push("/login")
         } else if (localStorage.getItem("id") !== null ) {
             setLoggedIn(true)
-            const response = await axios.post(BASE_URL + "/api/shoppingcart/" + localStorage.getItem("id") + "/" + product_id + "/add")
+            await axios.post(BASE_URL + "/api/shoppingcart/add/" + product_id, "", {
+                headers: {
+                    authorization: "Bearer " + localStorage.getItem('accessToken')
+                }
+            }
+            )
             setAdded(true)
             setLoaded(true)
         }
-
     }
-
 
     if (loaded === false) {
         return (
@@ -59,10 +62,16 @@ export default function IndividualProduct() {
     } else {
         return (
             <React.Fragment>
-        
-                <h1>Cinnamon Roll: {name}</h1>
+            <h2>Our Cinnamon Rolls:</h2>
+                <div className="cart-image" style={{
+                            backgroundImage: `url(${image})`,
+                            width: "150px",
+                            height: "150px"
+                        }}>PHOTO</div>
+                <h4>{name}</h4>
                 <p>Description: {description}</p>
-                <button className="btn btn-primary" onClick={addToCart}>Add to Cart</button>
+                <p>Cost: ${cost}</p>
+                <button className="btn btn-primary" onClick={()=>addToCart(product_id)}>Add to Cart</button>
                 <p className="item-added"
                     style={{display: added === true ? "block" : "none"}}> 
                     Item has been added to your shopping cart</p>

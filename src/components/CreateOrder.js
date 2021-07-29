@@ -17,7 +17,7 @@ export default function CreateOrder() {
                     authorization: "Bearer " + localToken
                 }
             })
-            console.log(response.data)
+
             setName(response.data.name);
             setAddress(response.data.address)
         }

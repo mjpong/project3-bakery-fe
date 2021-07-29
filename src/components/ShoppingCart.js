@@ -11,25 +11,83 @@ export default function ShoppingCart() {
     const [totalCost, setTotalCost] = useState(0)
 
     useEffect(() => {
-        const fetch = async () => {
-            const response = await axios.get(BASE_URL + "/api/shoppingcart/" + localStorage.getItem("id"))
-            setShoppingCartItem(response.data)
-            setLoaded(true)
-            
-        }
         fetch()
     }, [])
 
+    const fetch = async () => {
+        const response = await axios.get(BASE_URL + "/api/shoppingcart", {
+            headers: {
+                authorization: "Bearer " + localStorage.getItem('accessToken')
+            }
+        })
+        setShoppingCartItem(response.data)
+        calculateTotal(response.data);
+        setLoaded(true)
+    }
+
+    //quantity
+    const increaseQ = async (id) => {
+        const response = await axios.post(BASE_URL + "/api/shoppingcart/increase/"+ id, "",{
+            headers: {
+                authorization: "Bearer " + localStorage.getItem('accessToken')
+            }
+        })
+
+        fetch()
+    }
+
+    const decreaseQ = async (id) => {
+        const response = await axios.post(BASE_URL + "/api/shoppingcart/decrease/"+ id, "",{
+            headers: {
+                authorization: "Bearer " + localStorage.getItem('accessToken')
+            }
+        })
+        fetch()
+    }
+
+    // delete item
+    const deleteItem = async (id) => {
+        await axios.delete(BASE_URL + "/api/shoppingcart/remove/"+ id, {
+            headers: {
+                authorization: "Bearer " + localStorage.getItem('accessToken')
+            }
+        })
+        fetch()
+    }
+
+    const calculateTotal = (data) => {
+        let subtotal = 0;
+        for (let s of data) {
+            subtotal += (s.product.cost * s.quantity)
+        }
+        setTotalCost(subtotal)
+    }
 
     const renderCart = () => {
         let list = []
         shoppingCartItem.map(p => {
-            console.log(p)
             list.push(
                 <React.Fragment>
-                    <h3> Cinnamon Roll: {p.product.name} </h3>
-                    <p> Description: {p.product.description} </p>
-                    <p> Quantity: {p.quantity}</p>
+                    <div className="cart-wrapper">
+                        <div className="cart-image" style={{
+                            backgroundImage: `url(${p.product.image})`,
+                            width: "150px",
+                            height: "150px"
+                        }}>PHOTO</div>
+                        <h4> {p.product.name} </h4>
+                        <p> Description: {p.product.description} </p>
+                        <p> Unit Cost: ${p.product.cost/100}</p>
+                    </div>
+                    <div>
+                        <button className="btn btn-success" 
+                                onClick={() => increaseQ(p.id)}
+                                value={p.quantity}>+</button>
+                        {p.quantity}
+                        <button className="btn btn-warning" 
+                                onClick={() => decreaseQ(p.id)}
+                                value={p.quantity}>-</button>
+                    </div>
+                    <button className="btn btn-danger" onClick={() => deleteItem(p.id)}>Delete Item</button>
                 </React.Fragment>
             )
         })
@@ -40,10 +98,8 @@ export default function ShoppingCart() {
         }
         return list
     }
-    
-    const checkOut = () => {
-        <Link to="/checkout"></Link>
-    }
+
+
 
     if (loaded === false) {
         return (
@@ -54,8 +110,9 @@ export default function ShoppingCart() {
             <React.Fragment>
                 <h1> Shopping Cart</h1>
                 <div>{renderCart()}</div>
-                
-                <Link to="/checkout"> <button className = "btn btn-primary">Checkout </button></Link>
+                <h4>Total Cost: {totalCost}</h4>
+
+                <Link to="/checkout"> <button className="btn btn-primary">Checkout </button></Link>
             </React.Fragment>
         )
     }

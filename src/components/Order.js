@@ -6,13 +6,63 @@ const BASE_URL = config.BASE_URL
 
 export default function Order() {
 
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(false)
     const [orders, setOrders] = useState([])
 
-    // useEffect()
+    useEffect(() => {
+        const fetch = async () => {
+            const response = await axios.get(BASE_URL + "/api/orders/", {
+                headers: {
+                    authorization: "Bearer " + localStorage.getItem('accessToken')
+                }
+            })  
+            
+            setOrders(response.data.reverse())
+            setLoaded(true)
+        }
+        fetch()
+    }, [])
+
+
+    const renderOrders = () => {
+        let list = []
+        for (let o of orders) {
+            list.push(
+                <tr key={o.id}>
+                    <td>{o.id}</td>
+                    <td>{o.order_status.status}</td>
+                    <td>{o.order_date.slice(0, 10)}</td>
+                    <td>${o.total_cost/100}</td>
+                    <td>{o.completion_date == null ? "In Progress" : o.completion_date.slice(0,10)}</td>
+                    <td><Link to= {"/orders/" + o.id}>Details</Link></td>
+                </tr>
+            )
+        }
+        if (list.length === 0) {
+            list.push(
+                <div>There are no orders.</div>
+            )
+        }
+        return list
+    }
     return (
         <React.Fragment>
             <h1>Order Page</h1>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>Placed on</th>
+                        <th>Subtotal</th>
+                        <th>Completed on</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {renderOrders()}
+                </tbody>
+            </table>
         </React.Fragment>
     )
 }

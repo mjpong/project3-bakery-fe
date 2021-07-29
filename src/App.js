@@ -13,7 +13,8 @@ import Login from "./components/Login";
 import LoginContext from "./components/LoginContext";
 import CreateAccount from './components/CreateAccount';
 import Order from "./components/Order";
-import CreateOrder from "./components/CreateOrder"
+import IndividualOrder from "./components/IndividualOrder";
+import CreateOrder from "./components/CreateOrder";
 
 import config from "./config"
 const BASE_URL = config.BASE_URL
@@ -41,7 +42,7 @@ function App() {
     if (localToken) {
         const checkToken = async () => {
             // see if it's still valid
-            console.log(localToken);
+            // console.log(localToken);
             const response = await axios.get(BASE_URL + "/api/users/profile", {
                 headers: {
                     authorization: "Bearer " + localToken
@@ -94,7 +95,7 @@ function App() {
                     </div>
                     <div className="row">
                         <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
-                    
+
                         <Link className="nav-link"
                             style={{ display: loggedIn === false ? "block" : "none" }}
                             to="/register">Create Account</Link>
@@ -110,7 +111,7 @@ function App() {
                             to="/shoppingcart">Shopping Cart</Link>
                         <Link className="nav-link"
                             style={{ display: loggedIn === true ? "block" : "none" }}
-                            to="/order">My Orders</Link>
+                            to="/orders">My Orders</Link>
 
                     </div>
                 </nav>
@@ -139,12 +140,16 @@ function App() {
                     <Route exact path="/shoppingcart">
                         <ShoppingCart />
                     </Route>
-                    <Route exact path="/order">
+                    <Route exact path="/orders">
                         <Order />
+                    </Route>
+                    <Route exact path="/orders/:order_id">
+                        <IndividualOrder />
                     </Route>
                     <Route exact path="/checkout">
                         <CreateOrder />
                     </Route>
+
                 </Switch>
 
                 {/* <hr></hr>
