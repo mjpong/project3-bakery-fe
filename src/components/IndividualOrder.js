@@ -11,12 +11,16 @@ export default function IndividualOrder() {
     const [orderInfo, setOrderInfo] = useState([])
     const [orderDetails, setOrderDetails] = useState([])
     const [paymentSuccess, setPaymentSuccess] = useState(false)
+    const [paymentFailed, setPaymentFailed] = useState(false)
 
     useEffect(() => {
         const fetch = async () => {
             let status = params.get("payment");
             if(status == "success"){
                 setPaymentSuccess(true)
+            }
+            if(status == "failed"){
+                setPaymentFailed(true)
             }
             const response = await axios.get(BASE_URL + "/api/orders/" + order_id, {
                 headers: {
@@ -60,6 +64,9 @@ export default function IndividualOrder() {
             <React.Fragment>
                 <div className="payment-successful" style={{ display: paymentSuccess === true ? "block" : "none"}}>
                     <h4>Payment Successful</h4>
+                </div>
+                <div className="payment-failed" style={{ display: paymentFailed === true ? "block" : "none"}}>
+                    <h4>Payment Failed, Order Not Successful</h4>
                 </div>
                 <div className="order-details">
                     <h1>Order Information</h1>

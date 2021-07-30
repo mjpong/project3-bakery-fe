@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import axios from "axios"
-import { useHistory, Link } from "react-router-dom"
+import { useHistory} from "react-router-dom"
 import config from "../config"
 const BASE_URL = config.BASE_URL
 

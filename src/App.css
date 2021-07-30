@@ -3,12 +3,28 @@
 #root {
     font-family: 'Roboto', sans-serif;
     background-color: #FDF8F0;
+    min-height: 100vh;
 }
 
-body{
-    background-color: #FDF8F0;
+.navbar {
+    background-color: #FFEFD4;
 }
+
+a.nav-link {
+    color: orange;
+    font-weight: bold;
+}
+
+
 h1 {
 
     font-family: 'Bangers', cursive;
+}
+
+/* FILTER + SEARCH */
+.filter-input {
+    padding: 0.5em;
+    width: 100%;
+    margin-bottom: 1em;
+    border: 1px solid #fc9739;
 }

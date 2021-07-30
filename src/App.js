@@ -87,35 +87,65 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <nav className="navbar">
-                    <div className="logo row">
-                        <Link className="navbar-brand" style={{ display: "flex", width: "150px", height: "150px" }} to="/">
+                <nav className="navbar navbar-expand-lg">
+                    <div className="container-fluid">
+                        <Link className="navbar-brand" style={{ display: "flex", width: "170px", height: "170px" }} to="/">
                             <img src={require("./RollWithMe.png").default} alt="logo" />
                         </Link>
-                    </div>
-                    <div className="row">
-                        <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">Home</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        My Account
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a className="dropdown-item" href="#">Action</a></li>
+                                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        style={{ display: loggedIn === false ? "block" : "none" }}
+                                        to="/login">Login</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        style={{ display: loggedIn === false ? "block" : "none" }}
+                                        to="/register">Create Account</Link>
+                                </li>
 
-                        <Link className="nav-link"
-                            style={{ display: loggedIn === false ? "block" : "none" }}
-                            to="/register">Create Account</Link>
-                        <Link className="nav-link"
-                            style={{ display: loggedIn === false ? "block" : "none" }}
-                            to="/login">Login</Link>
-                        <Link className="nav-link"
-                            style={{ display: loggedIn === true ? "block" : "none" }}
-                            onClick={logoutUser}
-                            to="/">Logout</Link>
-                        <Link className="nav-link"
-                            style={{ display: loggedIn === true ? "block" : "none" }}
-                            to="/shoppingcart">Shopping Cart</Link>
-                        <Link className="nav-link"
-                            style={{ display: loggedIn === true ? "block" : "none" }}
-                            to="/orders">My Orders</Link>
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        style={{ display: loggedIn === true ? "block" : "none" }}
+                                        to="/shoppingcart">Shopping Cart</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        style={{ display: loggedIn === true ? "block" : "none" }}
+                                        to="/orders">My Orders</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        style={{ display: loggedIn === true ? "block" : "none" }}
+                                        onClick={logoutUser}
+                                        to="/">Logout</Link>
+                                </li>
 
+                            </ul>
+                        </div>
                     </div>
                 </nav>
-
 
                 <Switch>
                     <Route exact path="/">
@@ -187,7 +217,7 @@ function App() {
 
             </Router>
 
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 
