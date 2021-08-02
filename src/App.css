@@ -6,15 +6,41 @@
     min-height: 100vh;
 }
 
+.hero-image {
+    background-image: linear-gradient(rgba(252, 239, 223, 0.5), rgba(255, 247, 219, 0.5)), url("./images/c3.jpg");
+    height:80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-wrapper{
+    position: absolute; 
+    right: 45%;
+    top: 40%;
+    background-color: rgba(231, 226, 207, 0.76);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.hero-button {
+    text-align: center;
+    position: center;
+    text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: orange !important;
+}
+
 .navbar {
     background-color: #FFEFD4;
 }
-
-a.nav-link {
-    color: orange;
-    font-weight: bold;
-}
-
 
 h1 {
 

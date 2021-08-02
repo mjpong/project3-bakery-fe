@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 export default function Landing() {
     return (
         <React.Fragment>
-            <div className="container-fluid p-3">
-                <h1> Home Landing Page </h1>
-            </div>
+            <div className="hero-image">
+                <div className="hero-wrapper">
+                    <Link className="hero-button" to="/products">
+                        <h1>Let's Roll</h1>
+                    </Link>
 
+                </div>
+            </div>
         </React.Fragment>
     )
 }

@@ -87,10 +87,10 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <nav className="navbar navbar-expand-lg">
+                <nav className="navbar navbar-expand-md">
                     <div className="container-fluid">
                         <Link className="navbar-brand" style={{ display: "flex", width: "170px", height: "170px" }} to="/">
-                            <img src={require("./RollWithMe.png").default} alt="logo" />
+                            <img src={require("./images/RollWithMe.png").default} alt="logo" />
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -108,40 +108,35 @@ function App() {
                                         My Account
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a className="dropdown-item" href="#">Action</a></li>
-                                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === false ? "block" : "none" }}
+                                                to="/register">Create Account</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === false ? "block" : "none" }}
+                                                to="/login">Login</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === true ? "block" : "none" }}
+                                                to="/shoppingcart">Shopping Cart</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === true ? "block" : "none" }}
+                                                to="/orders">My Orders</Link>
+                                        </li>
                                         <li><hr className="dropdown-divider" /></li>
-                                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === true ? "block" : "none" }}
+                                                onClick={logoutUser}
+                                                to="/">Logout</Link>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link"
-                                        style={{ display: loggedIn === false ? "block" : "none" }}
-                                        to="/login">Login</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link"
-                                        style={{ display: loggedIn === false ? "block" : "none" }}
-                                        to="/register">Create Account</Link>
-                                </li>
-
-                                <li className="nav-item">
-                                    <Link className="nav-link"
-                                        style={{ display: loggedIn === true ? "block" : "none" }}
-                                        to="/shoppingcart">Shopping Cart</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link"
-                                        style={{ display: loggedIn === true ? "block" : "none" }}
-                                        to="/orders">My Orders</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link"
-                                        style={{ display: loggedIn === true ? "block" : "none" }}
-                                        onClick={logoutUser}
-                                        to="/">Logout</Link>
-                                </li>
-
                             </ul>
                         </div>
                     </div>
@@ -182,20 +177,30 @@ function App() {
 
                 </Switch>
 
-                {/* <hr></hr>
                 <div className="footer row">
                     <section className="footer-left col-4">
                         <p className="left-header">Quick Links</p>
                         <ul className="link-list">
-                            <li className="footer-link">
+                            <li className="footer-link" style={{ display: loggedIn === false ? "block" : "block" }}>
                                 <Link to="/products">Cinnamon Rolls</Link>
+                            </li>
+                            <li className="footer-link" style={{ display: loggedIn === false ? "block" : "none" }}>
+                                <Link to="/login">Login</Link>
+                            </li>
+                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link to="/shoppingcart">Shopping Cart</Link>
+                            </li>
+                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link to="/orders">My Orders</Link>
+                            </li>
+                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link onClick={logoutUser}
+                                    to="/">Logout</Link>
                             </li>
                         </ul>
                     </section>
                     <section className="footer-center col-4">
-                        <Link className="footer-logo" style={{ display: "flex", width: "150px", height: "150px" }} to="/">
-                            <img src={require("./RollWithMe.png").default} alt="logo" />
-                        </Link>
+
                     </section>
                     <section className="footer-right col-4">
                         <p className="right-header">Contact Us</p>
@@ -213,7 +218,7 @@ function App() {
                     </section>
                 </div>
 
- */}
+
 
             </Router>
 
