@@ -1,5 +1,5 @@
-import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
+import './App.css';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
@@ -87,11 +87,13 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <nav className="navbar navbar-expand-md">
+                <div className="logo-wrapper container-fluid">
+                    <Link className="logo-image" style={{ display: "flex", width: "170px", height: "170px" }} to="/">
+                        <img src={require("./images/RollWithMe.png").default} alt="logo" />
+                    </Link>
+                </div>
+                <nav className="navbar sticky-top navbar-expand-md">
                     <div className="container-fluid">
-                        <Link className="navbar-brand" style={{ display: "flex", width: "170px", height: "170px" }} to="/">
-                            <img src={require("./images/RollWithMe.png").default} alt="logo" />
-                        </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
                         </button>
@@ -128,7 +130,6 @@ function App() {
                                                 style={{ display: loggedIn === true ? "block" : "none" }}
                                                 to="/orders">My Orders</Link>
                                         </li>
-                                        <li><hr className="dropdown-divider" /></li>
                                         <li className="nav-item">
                                             <Link className="dropdown-item"
                                                 style={{ display: loggedIn === true ? "block" : "none" }}
@@ -177,10 +178,11 @@ function App() {
 
                 </Switch>
 
-                <div className="footer row">
-                    <section className="footer-left col-4">
-                        <p className="left-header">Quick Links</p>
-                        <ul className="link-list">
+
+                <div className="footer container mt-3">
+                    <div className="row">
+                        <section className="footer-left col-4">
+                            <p className="footer-header">Quick Links</p>
                             <li className="footer-link" style={{ display: loggedIn === false ? "block" : "block" }}>
                                 <Link to="/products">Cinnamon Rolls</Link>
                             </li>
@@ -197,27 +199,19 @@ function App() {
                                 <Link onClick={logoutUser}
                                     to="/">Logout</Link>
                             </li>
-                        </ul>
-                    </section>
-                    <section className="footer-center col-4">
+                        </section>
+                        <section className="footer-center col-4">
 
-                    </section>
-                    <section className="footer-right col-4">
-                        <p className="right-header">Contact Us</p>
-                        <ul className="link-list">
-                            <li>
-                                Phone
-                            </li>
-                            <li>
-                                Email
-                            </li>
-                            <li>
-                                Whatsapp
-                            </li>
-                        </ul>
-                    </section>
+
+                        </section>
+                        <section className="footer-right col-4">
+                            <p className="footer-header">Contact Us</p>
+                            <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
+                            <p className="footer-text"><i class="far fa-envelope"></i><a href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
+                            <p className="footer-text"><i class="fab fa-instagram"></i> #rollwithme </p>
+                        </section>
+                    </div>
                 </div>
-
 
 
             </Router>

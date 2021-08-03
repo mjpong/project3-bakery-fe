@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 #root {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
     background-color: #FDF8F0;
     min-height: 100vh;
 }
 
+/* LANDING */
+
 .hero-image {
-    background-image: linear-gradient(rgba(252, 239, 223, 0.5), rgba(255, 247, 219, 0.5)), url("./images/c3.jpg");
-    height:80vh;
+    background-image: linear-gradient(rgba(209, 245, 250, 0.5), rgba(229, 240, 237, 0.616)), url("./images/c2.jpeg");
+    height:60vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,8 +20,8 @@
 
 .hero-wrapper{
     position: absolute; 
-    right: 45%;
-    top: 40%;
+    left: 45%;
+    top: 38%;
     background-color: rgba(231, 226, 207, 0.76);
     border-radius: 10px;
     padding: 15px;
@@ -30,6 +33,15 @@
     text-decoration: none;
 }
 
+.hero-text{
+    color: #C85103;
+    font-family: 'Bangers', cursive;
+}
+
+.weekly-product {
+    background-color: #fff2dc;;
+}
+/* NAV LINKS */
 a:link,
 a:visited,
 a:hover,
@@ -38,19 +50,53 @@ a:active {
   color: orange !important;
 }
 
-.navbar {
+.navbar, .logo-wrapper {
     background-color: #FFEFD4;
 }
 
-h1 {
-
-    font-family: 'Bangers', cursive;
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
+.nav-link {
+    font-size: 19px;
+}
+
+
+/* PRODUCT LISTING */
+
+.product-name{
+    color: #4a4a4a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;;
+}
+
+.product-wrapper{
+    text-align: center;
+}
+
+.product-link {
+    text-decoration: none;
+}
+
+.header-image-wrapper {
+    background-image: url("./images/gero.jpeg");
+    height:40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 /* FILTER + SEARCH */
 .filter-input {
     padding: 0.5em;
     width: 100%;
     margin-bottom: 1em;
-    border: 1px solid #fc9739;
+    border: 1.5px solid #fc9739;
+}
+
+.icon-buttons {
+    border: 2px solid #fc9739;
+    background-color: rgba(255, 166, 0, 0.555);
 }
