@@ -23,7 +23,6 @@ export default function ProductListing() {
             setProducts(productsResponse.data)
             setFlavors(flavorsResponse.data)
             setDoughType(doughResponse.data)
-            console.log(doughResponse.data)
             setLoaded(true)
 
         }
@@ -59,7 +58,6 @@ export default function ProductListing() {
     function renderFlavor() {
         let options = [];
         for (let f of flavors) {
-            console.log(f);
             let e = (
                 <option value={f[0]}>{f[1]}</option>
             )
@@ -79,7 +77,6 @@ export default function ProductListing() {
         return options;
     }
 
-
     if (loaded === false) {
         return (
             <p>Products Loadings</p>
@@ -87,48 +84,56 @@ export default function ProductListing() {
     } else {
         return (
             <React.Fragment>
-                <h1> Product Page </h1>
-                <div className="row">
-                    <div className="filter-header col-3">
-                        <p>Filter</p>
-                        <input type="text" className="filter-input"
-                            name="searchName"
-                            placeholder="Search By Product Name"
-                            value={searchName}
-                            onChange={(e) => setSearchName(e.target.value)}></input>
-                        <select name="searchFlavor" value={searchFlavor}
-                            className="filter-input"
-                            onChange={(e) => setSearchFlavor(e.target.value)}>
-                            <option defaultValue>- Flavor Type -</option>
-                            {renderFlavor()}
-                        </select>
-                        <select name="searchDoughType" value={searchDoughType}
-                            className="filter-input"
-                            onChange={(e) => setSearchDoughType(e.target.value)}>
-                            <option defaultValue>- Dough Type -</option>
-                            {renderDoughType()}
-                        </select>
-                        <div className="filter-buttons">
-                            <button type="submit" className="btn btn-secondary search my-1 mx-sm-2 " onClick={searchQuery}><i class="fas fa-search"></i></button>
-                            <button type="submit" className="btn btn-secondary search-reset my-1 mx-sm-2 " onClick={resetQuery}><i class="fas fa-undo-alt"></i></button>
+                <div className="container-fluid">
+                    <div className="row mt-3">
+                        <div className="filter-wrapper col-3">
+                            <div className="filter-title">
+                                <h5>Filter & Search</h5>
+                            </div>
+                            <input type="text" className="filter-input"
+                                name="searchName"
+                                placeholder="Search By Product Name"
+                                value={searchName}
+                                onChange={(e) => setSearchName(e.target.value)}></input>
+                            <select name="searchFlavor" value={searchFlavor}
+                                className="filter-input"
+                                onChange={(e) => setSearchFlavor(e.target.value)}>
+                                <option defaultValue>- Flavor Type -</option>
+                                {renderFlavor()}
+                            </select>
+                            <select name="searchDoughType" value={searchDoughType}
+                                className="filter-input"
+                                onChange={(e) => setSearchDoughType(e.target.value)}>
+                                <option defaultValue>- Dough Type -</option>
+                                {renderDoughType()}
+                            </select>
+                            <div className="filter-buttons">
+                                <button type="submit" className="btn icon-buttons my-1 mx-sm-2 " onClick={searchQuery}><i class="fas fa-search"></i></button>
+                                <button type="submit" className="btn icon-buttons my-1 mx-sm-2 " onClick={resetQuery}><i class="fas fa-undo-alt"></i></button>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-9">
-                        <p> Showing {products.length} items</p>
-                        <div className="row">
-                            {products.map(p =>
-                                <div className="col-12 key={p.id}">
-                                    <div className="single-product">
-                                        <div>
-                                            <Link to={'/products/' + p.id} className='product-link'>Item Name: {p.name}</Link>
-                                        </div>
+                        <div className="col-9">
+                            <h4> OUR ROLLS </h4>
+                            <div className="header-image-wrapper mb-3">
+                            </div>
+                            <p> Showing {products.length} items</p>
+                            <div className="row">
+                                {products.map(p =>
+                                    <div className="col-lg-4 col-md-6 col-12 product-wrapper p-2" key={p.id}>
+                                        <Link to={"/products/" + p.id} className="product-link">
+                                            <img className="product-image" key={p.id} src={p.image} width="200px" alt="img" />
+                                            <div className="product-name mt-2">
+                                                <h4>{p.name}</h4>
+                                                <p>${p.cost / 100}</p>
+                                            </div>
+                                        </Link>
                                     </div>
-                                </div>
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </React.Fragment >
+            </React.Fragment>
         )
     }
 }

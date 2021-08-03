@@ -19,10 +19,10 @@ export default function IndividualProduct() {
     const [doughtype, setDoughtype] = useState('');
     const [flavor, setFlavor] = useState('')
     const [topping, setTopping] = useState([]);
-    const [image, setImage]= useState("")
+    const [image, setImage] = useState("")
 
 
-    useEffect(()=> {
+    useEffect(() => {
         const fetch = async () => {
             const response = await axios.get(BASE_URL + "/api/products/" + product_id)
             setLoaded(true)
@@ -37,12 +37,12 @@ export default function IndividualProduct() {
         }
         fetch();
     }, [])
-    
+
     const addToCart = async (product_id) => {
         if (localStorage.getItem("id") == null) {
             setLoggedIn(false)
             history.push("/login")
-        } else if (localStorage.getItem("id") !== null ) {
+        } else if (localStorage.getItem("id") !== null) {
             setLoggedIn(true)
             await axios.post(BASE_URL + "/api/shoppingcart/add/" + product_id, "", {
                 headers: {
@@ -62,18 +62,15 @@ export default function IndividualProduct() {
     } else {
         return (
             <React.Fragment>
-            <h2>Our Cinnamon Rolls:</h2>
-                <div className="cart-image" style={{
-                            backgroundImage: `url(${image})`,
-                            width: "150px",
-                            height: "150px"
-                        }}>PHOTO</div>
+                <h2>Our Cinnamon Rolls:</h2>
+
+                <img className="single-product-image" src={image} width="200px" alt="img" />
                 <h4>{name}</h4>
                 <p>Description: {description}</p>
-                <p>Cost: ${cost}</p>
-                <button className="btn btn-primary" onClick={()=>addToCart(product_id)}>Add to Cart</button>
+                <p>Cost: ${cost / 100}</p>
+                <button className="btn btn-primary" onClick={() => addToCart(product_id)}>Add to Cart</button>
                 <p className="item-added"
-                    style={{display: added === true ? "block" : "none"}}> 
+                    style={{ display: added === true ? "block" : "none" }}>
                     Item has been added to your shopping cart</p>
             </React.Fragment>
         )
