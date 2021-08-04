@@ -8,6 +8,7 @@ import axios from "axios";
 import Landing from "./components/Landing";
 import ProductListing from "./components/ProductListing";
 import IndividualProduct from "./components/IndividualProduct";
+import CareGuide from "./components/CareGuide";
 import ShoppingCart from "./components/ShoppingCart";
 import Login from "./components/Login";
 import LoginContext from "./components/LoginContext";
@@ -105,6 +106,9 @@ function App() {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/careguide">Care Guide</Link>
+                                </li>
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         My Account
@@ -142,61 +146,67 @@ function App() {
                         </div>
                     </div>
                 </nav>
+                <div className="content-container">
+                    <Switch>
+                        <Route exact path="/">
+                            <Landing />
+                        </Route>
+                        <Route exact path="/products">
+                            <ProductListing />
+                        </Route>
+                        <Route exact path="/products/:product_id">
+                            <IndividualProduct />
+                        </Route>
+                        <Route exact path="/careguide">
+                            <CareGuide />
+                        </Route>
+                        <Route exact path='/login'>
+                            <LoginContext.Provider value={context}>
+                                <Login />
+                            </LoginContext.Provider>
+                        </Route>
+                        <Route exact path='/register'>
+                            <LoginContext.Provider value={context}>
+                                <CreateAccount />
+                            </LoginContext.Provider>
+                        </Route>
+                        <Route exact path="/shoppingcart">
+                            <ShoppingCart />
+                        </Route>
+                        <Route exact path="/orders">
+                            <Order />
+                        </Route>
+                        <Route exact path="/orders/:order_id">
+                            <IndividualOrder />
+                        </Route>
+                        <Route exact path="/checkout">
+                            <CreateOrder />
+                        </Route>
 
-                <Switch>
-                    <Route exact path="/">
-                        <Landing />
-                    </Route>
-                    <Route exact path="/products">
-                        <ProductListing />
-                    </Route>
-                    <Route exact path="/products/:product_id">
-                        <IndividualProduct />
-                    </Route>
-                    <Route exact path='/login'>
-                        <LoginContext.Provider value={context}>
-                            <Login />
-                        </LoginContext.Provider>
-                    </Route>
-                    <Route exact path='/register'>
-                        <LoginContext.Provider value={context}>
-                            <CreateAccount />
-                        </LoginContext.Provider>
-                    </Route>
-                    <Route exact path="/shoppingcart">
-                        <ShoppingCart />
-                    </Route>
-                    <Route exact path="/orders">
-                        <Order />
-                    </Route>
-                    <Route exact path="/orders/:order_id">
-                        <IndividualOrder />
-                    </Route>
-                    <Route exact path="/checkout">
-                        <CreateOrder />
-                    </Route>
-
-                </Switch>
-
+                    </Switch>
+                </div>
 
                 <div className="footer container mt-3">
                     <div className="row">
                         <section className="footer-left col-4">
                             <p className="footer-header">Quick Links</p>
-                            <li className="footer-link" style={{ display: loggedIn === false ? "block" : "block" }}>
-                                <Link to="/products">Cinnamon Rolls</Link>
+                            <li style={{ display: loggedIn === false ? "block" : "block" }}>
+                                <Link className="footer-link" to="/products">Cinnamon Rolls</Link>
                             </li>
-                            <li className="footer-link" style={{ display: loggedIn === false ? "block" : "none" }}>
-                                <Link to="/login">Login</Link>
+                            <li style={{ display: loggedIn === false ? "block" : "block" }}>
+                                <Link className="footer-link" to="/careguide">Care Guide</Link>
                             </li>
-                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
-                                <Link to="/shoppingcart">Shopping Cart</Link>
+                            <li style={{ display: loggedIn === false ? "block" : "none" }}>
+                                <Link className="footer-link" to="/login">Login</Link>
                             </li>
-                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
-                                <Link to="/orders">My Orders</Link>
+                            <li style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link className="footer-link" to="/shoppingcart">Shopping Cart</Link>
                             </li>
-                            <li className="footer-link" style={{ display: loggedIn === true ? "block" : "none" }}>
-                                <Link onClick={logoutUser}
+                            <li style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link className="footer-link" to="/orders">My Orders</Link>
+                            </li>
+                            <li style={{ display: loggedIn === true ? "block" : "none" }}>
+                                <Link className="footer-link" onClick={logoutUser}
                                     to="/">Logout</Link>
                             </li>
                         </section>
@@ -207,7 +217,7 @@ function App() {
                         <section className="footer-right col-4">
                             <p className="footer-header">Contact Us</p>
                             <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
-                            <p className="footer-text"><i class="far fa-envelope"></i><a href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
+                            <p className="footer-text"><i class="far fa-envelope"></i><a className="footer-link" href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
                             <p className="footer-text"><i class="fab fa-instagram"></i> #rollwithme </p>
                         </section>
                     </div>

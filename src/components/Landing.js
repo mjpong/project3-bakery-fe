@@ -40,25 +40,35 @@ export default class Landing extends React.Component {
                         </Link>
                     </div>
                 </div>
-                <div className="about-us container-fluid mt-3 row">
-                    <div className="col-6">
-                        <h2>About Us</h2>
-                        <p>We make phenomenal cinnamon rolls!
-                            Roll With Me is a small independent bakery based in Singapore, known for its super fab and tasty cinnamon rolls.
-                            We make everything in-house from scratch daily with only the finest ingredients, bringing the best rolls to you.</p>
-                    </div>
-                    <div className="col-6">
-                        <img src={require("../images/c1.jpg").default} width="200px" height="100%" alt="logo" />
+
+
+                <div className="about-us row p-3 mt-3">
+                    <h2 className="text-center">ABOUT US</h2>
+                    <div className="row">
+                        <div className="col-sm-6 col-12 p-3 about-us-text">
+                            <p>We make phenomenal cinnamon rolls!
+                                Roll With Me is a small independent bakery based in Singapore, known for its super fab and tasty cinnamon rolls.
+                                We make everything in-house from scratch daily with only the finest ingredients, bringing the best rolls to you.</p>
+                        </div>
+                        <div className="col-sm-6 col-12 about-us-image p-3">
+                            <img src={require("../images/c1.jpg").default} width="100%" height="100%" alt="about-us" />
+                        </div>
+
                     </div>
                 </div>
-                <div className="weekly-product container-fluid">
-                    <h2>Featured Product of the Week</h2>
-                    <div className="">
-                        <Link to={"/products/4"} className="product-link">
-                            <img className="product-image" src={this.state.image} width="200px" alt="img" />
-                            <div className="product-name mt-2">
-                                <h4>{this.state.name}</h4>
-                                <p>${this.state.cost / 100}</p>
+                <div className="weekly-product">
+                    <h2 className="pt-3 text-center">FEATURED PRODUCT OF THE WEEK</h2>
+                    <div className="landing-product-wrapper p-3 ">
+                        <Link to={"/products/4"} className="product-link row">
+                            <div className="col-sm-6 col-12 feature-img">
+                                <img src={this.state.image} width="200px" alt="img" />
+                            </div>
+                            <div className="feature-name col-sm-6 col-12">
+                                <div>
+                                    <h4>{this.state.name}</h4>
+                                    <p>${this.state.cost / 100}</p>
+                                    <p>{this.state.description}</p>
+                                </div>
                             </div>
                         </Link>
 
