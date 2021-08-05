@@ -27,7 +27,7 @@ export default function ShoppingCart() {
 
     //quantity
     const increaseQ = async (id) => {
-        const response = await axios.post(BASE_URL + "/api/shoppingcart/increase/"+ id, "",{
+        const response = await axios.post(BASE_URL + "/api/shoppingcart/increase/" + id, "", {
             headers: {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
@@ -37,7 +37,7 @@ export default function ShoppingCart() {
     }
 
     const decreaseQ = async (id) => {
-        const response = await axios.post(BASE_URL + "/api/shoppingcart/decrease/"+ id, "",{
+        const response = await axios.post(BASE_URL + "/api/shoppingcart/decrease/" + id, "", {
             headers: {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
@@ -47,7 +47,7 @@ export default function ShoppingCart() {
 
     // delete item
     const deleteItem = async (id) => {
-        await axios.delete(BASE_URL + "/api/shoppingcart/remove/"+ id, {
+        await axios.delete(BASE_URL + "/api/shoppingcart/remove/" + id, {
             headers: {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
@@ -76,16 +76,16 @@ export default function ShoppingCart() {
                         }}>PHOTO</div>
                         <h4> {p.product.name} </h4>
                         <p> Description: {p.product.description} </p>
-                        <p> Unit Cost: ${p.product.cost/100}</p>
+                        <p> Unit Cost: ${p.product.cost / 100}</p>
                     </div>
                     <div>
-                        <button className="btn btn-success" 
-                                onClick={() => increaseQ(p.id)}
-                                value={p.quantity}>+</button>
+                        <button className="btn btn-success"
+                            onClick={() => increaseQ(p.id)}
+                            value={p.quantity}>+</button>
                         {p.quantity}
-                        <button className="btn btn-warning" 
-                                onClick={() => decreaseQ(p.id)}
-                                value={p.quantity}>-</button>
+                        <button className="btn btn-warning"
+                            onClick={() => decreaseQ(p.id)}
+                            value={p.quantity}>-</button>
                     </div>
                     <button className="btn btn-danger" onClick={() => deleteItem(p.id)}>Delete Item</button>
                 </React.Fragment>
@@ -103,7 +103,10 @@ export default function ShoppingCart() {
 
     if (loaded === false) {
         return (
-            <p>Loading ... </p>
+            <div>
+                <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
+            </div>
+
         )
     } else {
         return (

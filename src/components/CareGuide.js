@@ -21,7 +21,7 @@ export default function CareGuide() {
                         </p>
                     </div>
                     <div className="col-sm-6 col-12 care-guide-image p-3">
-                        <img src={require("../images/hero.jpeg").default} width="100%" height="100%" alt="care-guide-image" />
+                        <img src={require("../images/hero.jpeg").default} width="100%" height="100%" alt="care-guide" />
                     </div>
 
                 </div>

@@ -79,7 +79,7 @@ export default function ProductListing() {
 
     if (loaded === false) {
         return (
-            <p>Products Loadings</p>
+            <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
         )
     } else {
         return (

@@ -9,6 +9,16 @@
 
 .content-container{
     padding: 0px 20px;
+    min-height: 80vh;
+
+}
+
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
 }
 
 /* NAV LINKS */
@@ -91,7 +101,6 @@
     display: flex;
 }
 
-
 /* PRODUCT LISTING */
 
 .product-name{
@@ -116,7 +125,9 @@
     background-size: cover;
     position: relative;
 }
+
 /* FILTER + SEARCH */
+
 .filter-input {
     padding: 0.5em;
     width: 100%;
@@ -128,6 +139,8 @@
     border: 2px solid #fc9739;
     background-color: rgba(255, 166, 0, 0.555);
 }
+
+
 
 /* MOBILE SIZE */
 

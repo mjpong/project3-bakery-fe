@@ -16,10 +16,10 @@ export default function IndividualOrder() {
     useEffect(() => {
         const fetch = async () => {
             let status = params.get("payment");
-            if(status == "success"){
+            if (status == "success") {
                 setPaymentSuccess(true)
             }
-            if(status == "failed"){
+            if (status == "failed") {
                 setPaymentFailed(true)
             }
             const response = await axios.get(BASE_URL + "/api/orders/" + order_id, {
@@ -31,7 +31,7 @@ export default function IndividualOrder() {
             setOrderDetails(response.data.orders_products)
             console.log(response.data.orders_products)
             setIsLoaded(true)
-            
+
         }
         fetch()
     }, [])
@@ -41,10 +41,10 @@ export default function IndividualOrder() {
         let list = []
         for (let o of orderDetails) {
             list.push(
-                <tr key = {o.id}>
+                <tr key={o.id}>
                     <td>{o.product.name}</td>
                     <td>{o.quantity}</td>
-                    <td>${o.product.cost/100}</td>
+                    <td>${o.product.cost / 100}</td>
                 </tr>
             )
         }
@@ -57,15 +57,15 @@ export default function IndividualOrder() {
 
     if (isLoaded === false) {
         return (
-            <p>Loading...</p>
+            <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
         )
     } else {
         return (
             <React.Fragment>
-                <div className="payment-successful" style={{ display: paymentSuccess === true ? "block" : "none"}}>
+                <div className="payment-successful" style={{ display: paymentSuccess === true ? "block" : "none" }}>
                     <h4>Payment Successful</h4>
                 </div>
-                <div className="payment-failed" style={{ display: paymentFailed === true ? "block" : "none"}}>
+                <div className="payment-failed" style={{ display: paymentFailed === true ? "block" : "none" }}>
                     <h4>Payment Failed, Order Not Successful</h4>
                 </div>
                 <div className="order-details">
@@ -86,7 +86,7 @@ export default function IndividualOrder() {
                             </tr>
                         </thead>
                         <tbody>
-                        {renderOrderDetails()}
+                            {renderOrderDetails()}
                         </tbody>
                     </table>
                 </div>

@@ -57,7 +57,7 @@ export default function IndividualProduct() {
 
     if (loaded === false) {
         return (
-            <p>Loading</p>
+            <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
         )
     } else {
         return (
