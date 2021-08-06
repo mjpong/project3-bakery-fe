@@ -16,7 +16,9 @@ export default function IndividualProduct() {
     const [name, setName] = useState("");
     const [cost, setCost] = useState(0);
     const [description, setDescription] = useState("");
-    const [doughtype, setDoughtype] = useState('');
+    const [doughtype, setDoughtype] = useState({
+        "ingredients": []
+    });
     const [ingredients, setIngredients] = useState('');
     const [flavor, setFlavor] = useState('')
     const [toppings, setToppings] = useState([]);
@@ -109,7 +111,14 @@ export default function IndividualProduct() {
                                             </td>
                                             <td>
                                                 {toppings.map(p => p.name).join(", ")}
-                                                {/* <p>{doughtype.ingredients.map(p => p.name).join(", ")}</p> */}
+                                            </td>
+                                        </tr>
+                                        <tr className="table-details">
+                                            <td>
+                                                Ingredients -
+                                            </td>
+                                            <td>
+                                                <p>{doughtype.ingredients.map(p => p.name).join(", ")}</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -122,6 +131,12 @@ export default function IndividualProduct() {
                             <p className="item-added"
                                 style={{ display: added === true ? "block" : "none" }}>
                                 Item has been added to your shopping cart</p>
+                            <div className="item-added-btn" style={{ display: added === true ? "block" : "none" }}>
+                                <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
+                                <br></br>
+                                <Link className="btn allbtn mt-2" to="/shoppingcart"> Checkout </Link>
+                            </div>
+
                         </div>
                     </div>
                 </div>

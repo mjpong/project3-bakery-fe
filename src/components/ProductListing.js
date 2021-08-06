@@ -20,6 +20,7 @@ export default function ProductListing() {
             const productsResponse = await axios.get(BASE_URL + "/api/products")
             const flavorsResponse = await axios.get(BASE_URL + "/api/products/flavors")
             const doughResponse = await axios.get(BASE_URL + "/api/products/doughtypes")
+            console.log(productsResponse.data)
             setProducts(productsResponse.data)
             setFlavors(flavorsResponse.data)
             setDoughType(doughResponse.data)
@@ -77,6 +78,22 @@ export default function ProductListing() {
         return options;
     }
 
+    function renderProducts() {
+        return products.map(p => {
+            if (p.stock >= 1) {
+                return <div className="col-lg-4 col-md-6 col-12 product-wrapper p-2" key={p.id}>
+                    <Link to={"/products/" + p.id} className="product-link">
+                        <img className="product-image" key={p.id} src={p.image} width="200px" alt="img" />
+                        <div className="product-name mt-2">
+                            <h4>{p.name}</h4>
+                            <p>${p.cost / 100}</p>
+                        </div>
+                    </Link>
+                </div>
+            }
+        })
+    }
+
     if (loaded === false) {
         return (
             <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
@@ -118,17 +135,7 @@ export default function ProductListing() {
                             </div>
                             <p> Showing {products.length} items</p>
                             <div className="row">
-                                {products.map(p =>
-                                    <div className="col-lg-4 col-md-6 col-12 product-wrapper p-2" key={p.id}>
-                                        <Link to={"/products/" + p.id} className="product-link">
-                                            <img className="product-image" key={p.id} src={p.image} width="200px" alt="img" />
-                                            <div className="product-name mt-2">
-                                                <h4>{p.name}</h4>
-                                                <p>${p.cost / 100}</p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                )}
+                                {renderProducts()}
                             </div>
                         </div>
                     </div>
