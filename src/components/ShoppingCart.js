@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useHistory, Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function ShoppingCart() {
     const history = useHistory();
     const [loaded, setLoaded] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false)
     const [increaseFailed, setIncreaseFailed] = useState(false)
     const [shoppingCartItem, setShoppingCartItem] = useState([])
     const [totalCost, setTotalCost] = useState(0)
@@ -23,6 +24,7 @@ export default function ShoppingCart() {
         })
         setShoppingCartItem(response.data)
         calculateTotal(response.data);
+        setLoggedIn(true)
         setLoaded(true)
     }
 
@@ -128,6 +130,8 @@ export default function ShoppingCart() {
             </div>
 
         )
+    } else if (loaded === true && loggedIn === false) {
+        history.push("/login")
     } else {
         return (
             <React.Fragment>

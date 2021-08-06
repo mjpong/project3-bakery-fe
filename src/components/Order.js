@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function Order() {
-
+    const history = useHistory();
     const [loaded, setLoaded] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false)
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
@@ -18,7 +19,9 @@ export default function Order() {
             })
 
             setOrders(response.data.reverse())
+            setLoggedIn(true)
             setLoaded(true)
+
         }
         fetch()
     }, [])
@@ -50,28 +53,40 @@ export default function Order() {
         }
         return list
     }
-    return (
-        <React.Fragment>
-            <h1 className="m-3 text-center"> MY ORDERS </h1>
-            <hr></hr>
-            <div className="orders-wrapper table-responsive-sm ">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Status</th>
-                            <th>Placed on</th>
-                            <th>Subtotal</th>
-                            <th>Completed on</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {renderOrders()}
-                    </tbody>
-                </table>
+
+    if (loaded === false) {
+        return (
+            <div>
+                <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
             </div>
 
-        </React.Fragment>
-    )
+        )
+    } else if (loaded === true && loggedIn === false) {
+        history.push("/login")
+    } else {
+        return (
+            <React.Fragment>
+                <h1 className="m-3 text-center"> MY ORDERS </h1>
+                <hr></hr>
+                <div className="orders-wrapper table-responsive-sm ">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Status</th>
+                                <th>Placed on</th>
+                                <th>Subtotal</th>
+                                <th>Completed on</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {renderOrders()}
+                        </tbody>
+                    </table>
+                </div>
+
+            </React.Fragment>
+        )
+    }
 }

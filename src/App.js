@@ -12,6 +12,8 @@ import CareGuide from "./components/CareGuide";
 import ShoppingCart from "./components/ShoppingCart";
 import Login from "./components/Login";
 import LoginContext from "./components/LoginContext";
+import UserProfile from "./components/UserProfile";
+import EditUserProfile from "./components/EditUserProfile";
 import CreateAccount from './components/CreateAccount';
 import Order from "./components/Order";
 import IndividualOrder from "./components/IndividualOrder";
@@ -37,6 +39,7 @@ function App() {
             }
         }, config.REFRESH_INTERVAL)
     }, [])
+
 
     //see if there is a token in local storage
     const localToken = localStorage.getItem('accessToken')
@@ -127,6 +130,11 @@ function App() {
                                         <li className="nav-item">
                                             <Link className="dropdown-item"
                                                 style={{ display: loggedIn === true ? "block" : "none" }}
+                                                to="/profile">Profile Page</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="dropdown-item"
+                                                style={{ display: loggedIn === true ? "block" : "none" }}
                                                 to="/shoppingcart">Shopping Cart</Link>
                                         </li>
                                         <li className="nav-item">
@@ -170,6 +178,13 @@ function App() {
                                 <CreateAccount />
                             </LoginContext.Provider>
                         </Route>
+                        <Route exact path='/profile'>
+                            <UserProfile />
+                        </Route>
+                        <Route exact path='/profile/edit'>
+                            <EditUserProfile />
+                        </Route>
+
                         <Route exact path="/shoppingcart">
                             <ShoppingCart />
                         </Route>
@@ -188,7 +203,7 @@ function App() {
 
                 <div className="footer container-fluid p-3 mt-3">
                     <div className="row">
-                        <section className="footer-left col-6">
+                        <section className="leftcol col-6">
                             <p className="footer-header">Quick Links</p>
                             <li style={{ display: loggedIn === false ? "block" : "block" }}>
                                 <Link className="footer-link" to="/products">Cinnamon Rolls</Link>
@@ -198,6 +213,9 @@ function App() {
                             </li>
                             <li style={{ display: loggedIn === false ? "block" : "none" }}>
                                 <Link className="footer-link" to="/login">Login</Link>
+                            </li>
+                            <li style={{ display: loggedIn === false ? "block" : "none" }}>
+                                <Link className="footer-link" to="/profile">Profile Page</Link>
                             </li>
                             <li style={{ display: loggedIn === true ? "block" : "none" }}>
                                 <Link className="footer-link" to="/shoppingcart">Shopping Cart</Link>
@@ -211,7 +229,7 @@ function App() {
                             </li>
                         </section>
 
-                        <section className="footer-right col-6">
+                        <section className="rightcol col-6">
                             <p className="footer-header">Contact Us</p>
                             <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
                             <p className="footer-text"><i class="far fa-envelope"></i><a className="footer-link" href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
