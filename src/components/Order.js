@@ -15,8 +15,8 @@ export default function Order() {
                 headers: {
                     authorization: "Bearer " + localStorage.getItem('accessToken')
                 }
-            })  
-            
+            })
+
             setOrders(response.data.reverse())
             setLoaded(true)
         }
@@ -32,9 +32,9 @@ export default function Order() {
                     <td>{o.id}</td>
                     <td>{o.order_status.status}</td>
                     <td>{o.order_date.slice(0, 10)}</td>
-                    <td>${o.total_cost/100}</td>
-                    <td>{o.completion_date == null ? "In Progress" : o.completion_date.slice(0,10)}</td>
-                    <td><Link to= {"/orders/" + o.id}>Details</Link></td>
+                    <td>${o.total_cost / 100}</td>
+                    <td>{o.completion_date == null ? "In Progress" : o.completion_date.slice(0, 10)}</td>
+                    <td><Link className="allbtn btn" to={"/orders/" + o.id}>Details</Link></td>
                 </tr>
             )
         }

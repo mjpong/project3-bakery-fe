@@ -27,27 +27,34 @@ export default function CreateOrder() {
 
     return (
         <React.Fragment>
-            <h3>Shipping Address</h3>
-            <div className="create-account-form col-7">
-                <div className="form-label">Name: </div>
-                <input className="form-control" type="text"
-                    name="name" value={name}
-                    placeholder="Name"
-                    onChange={(e) => setName(e.target.value)}>
-                </input>
+            <div className="container p-5">
+                <div>
+                    <h3 className="text-center mb-4">Shipping Address </h3>
+                </div>
+                <div className="row">
+                    <p>Please fill out receiver details accordingly if different from user: </p>
+                    <div className="create-account-form col-5 mb-4">
+                        <div className="form-label">Name: </div>
+                        <input className="form-control" type="text"
+                            name="name" value={name}
+                            placeholder="Name"
+                            onChange={(e) => setName(e.target.value)}>
+                        </input>
 
+                    </div>
+                    <div className="create-account-form col-12 mb-4">
+                        <div className="form-label">Address: </div>
+                        <input className="form-control" type="text"
+                            name="address" value={address}
+                            placeholder="Address"
+                            onChange={(e) => setAddress(e.target.value)}>
+                        </input>
+                    </div>
+                    <a href={`${BASE_URL}/api/checkout/` + localStorage.getItem("id") + "?token=" + localStorage.getItem('accessToken') + "&address=" + address + "&name=" + name}>
+                        <button className="btn allbtn">Checkout</button>
+                    </a>
+                </div>
             </div>
-            <div className="create-account-form col-12">
-                <div className="form-label">Address: </div>
-                <input className="form-control" type="text"
-                    name="address" value={address}
-                    placeholder="Address"
-                    onChange={(e) => setAddress(e.target.value)}>
-                </input>
-            </div>
-            <a href={`${BASE_URL}/api/checkout/` + localStorage.getItem("id") + "?token=" + localStorage.getItem('accessToken') + "&address=" + address + "&name=" + name}>
-                <button className="btn btn-primary">Checkout</button>
-            </a>
         </React.Fragment>
     )
 

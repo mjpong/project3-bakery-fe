@@ -89,7 +89,7 @@ function App() {
         <React.Fragment>
             <Router>
                 <div className="logo-wrapper container-fluid">
-                    <Link className="logo-image" style={{ display: "flex", width: "170px", height: "170px" }} to="/">
+                    <Link className="logo-image" style={{ display: "flex", width: "160px", height: "160px" }} to="/">
                         <img src={require("./images/RollWithMe.png").default} alt="logo" />
                     </Link>
                 </div>
@@ -186,7 +186,7 @@ function App() {
                     </Switch>
                 </div>
 
-                <div className="footer container mt-3">
+                <div className="footer container-fluid mt-3">
                     <div className="row">
                         <section className="footer-left col-4">
                             <p className="footer-header">Quick Links</p>

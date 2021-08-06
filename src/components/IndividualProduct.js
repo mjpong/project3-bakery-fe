@@ -17,8 +17,9 @@ export default function IndividualProduct() {
     const [cost, setCost] = useState(0);
     const [description, setDescription] = useState("");
     const [doughtype, setDoughtype] = useState('');
+    const [ingredients, setIngredients] = useState('');
     const [flavor, setFlavor] = useState('')
-    const [topping, setTopping] = useState([]);
+    const [toppings, setToppings] = useState([]);
     const [image, setImage] = useState("")
 
 
@@ -30,8 +31,9 @@ export default function IndividualProduct() {
             setCost(response.data.cost)
             setDescription(response.data.description)
             setDoughtype(response.data.dough_type)
+            setIngredients(response.data.dough_type.ingredients)
             setFlavor(response.data.flavor)
-            setTopping(response.data.toppings)
+            setToppings(response.data.toppings)
             setImage(response.data.image)
             console.log(response.data)
         }
@@ -48,8 +50,7 @@ export default function IndividualProduct() {
                 headers: {
                     authorization: "Bearer " + localStorage.getItem('accessToken')
                 }
-            }
-            )
+            })
             setAdded(true)
             setLoaded(true)
         }
@@ -62,16 +63,82 @@ export default function IndividualProduct() {
     } else {
         return (
             <React.Fragment>
-                <h2>Our Cinnamon Rolls:</h2>
+                <div className='row p-5'>
+                    <div className="single-product-image col-12 col-lg-5 ">
+                        <img src={image} height="500px" alt="single-product" />
+                    </div>
+                    <div className="col-12 col-lg-7">
+                        <h1 className="single-product-title">{name}</h1>
 
-                <img className="single-product-image" src={image} width="200px" alt="img" />
-                <h4>{name}</h4>
-                <p>Description: {description}</p>
-                <p>Cost: ${cost / 100}</p>
-                <button className="btn btn-primary" onClick={() => addToCart(product_id)}>Add to Cart</button>
-                <p className="item-added"
-                    style={{ display: added === true ? "block" : "none" }}>
-                    Item has been added to your shopping cart</p>
+                        <p>{description}</p>
+                        <p style={{ fontStyle: 'italic' }}>Price per roll: ${cost / 100}</p>
+
+                        <div className="row description-wrapper">
+                            <div className="col-12 col-xl-6 col-md-6">
+                                <h4 className="table-details">Roll Details</h4>
+
+                                <table className="table">
+                                    <tbody>
+                                        <tr className="table-details">
+                                            <td>
+                                                Flavor -
+                                            </td>
+                                            <td>
+                                                {flavor.name} Roll
+                                            </td>
+                                        </tr>
+                                        <tr className="table-details">
+                                            <td>
+                                                Dough Type -
+                                            </td>
+                                            <td>
+                                                {doughtype.name}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div className="col-12 col-xl-6 col-md-6">
+                                <h4>Ingredients</h4>
+                                <table className="table">
+                                    <tbody>
+                                        <tr className="table-details">
+                                            <td>
+                                                Toppings -
+                                            </td>
+                                            <td>
+                                                {toppings.map(p => p.name).join(", ")}
+                                                {/* <p>{doughtype.ingredients.map(p => p.name).join(", ")}</p> */}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div className="addtocart-wrapper">
+                            <button className="btn allbtn" onClick={() => addToCart(product_id)}>Add to Cart</button>
+                            <p className="item-added"
+                                style={{ display: added === true ? "block" : "none" }}>
+                                Item has been added to your shopping cart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="reheat-instructions">
+                        <h4 className="text-center ">Reheating Instructions: </h4>
+                        <p>Oven:
+                            Preheat your oven to 350°F.Place your cinnamon rolls in a baking dish and cover with foil.
+                            Heat the cinnamon rolls for 10 minutes or until they are warm and the frosting has softened.
+                        </p>
+                        <p>Microwave:
+                            Place your cinnamon rolls on a microwave-safe dish.
+                            Heat for 30 seconds. Check the cinnamon rolls and repeat until they’re thoroughly heated.</p>
+                    </div>
+                </div>
+
             </React.Fragment>
         )
     }

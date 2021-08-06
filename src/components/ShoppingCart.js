@@ -68,26 +68,41 @@ export default function ShoppingCart() {
         shoppingCartItem.map(p => {
             list.push(
                 <React.Fragment>
-                    <div className="cart-wrapper">
-                        <div className="cart-image" style={{
-                            backgroundImage: `url(${p.product.image})`,
-                            width: "150px",
-                            height: "150px"
-                        }}>PHOTO</div>
-                        <h4> {p.product.name} </h4>
-                        <p> Description: {p.product.description} </p>
-                        <p> Unit Cost: ${p.product.cost / 100}</p>
+                    <div className="cart-each-wrapper row">
+                        <div className="col-lg-4">
+                            <div className="cart-item row">
+                                <div className="cart-image col-lg-6" style={{
+                                    backgroundImage: `url(${p.product.image})`
+                                }}>
+                                </div>
+                                <div className="cart-text col-lg-6">
+                                    <div>
+                                        <p className="mt-1 mb-0"> {p.product.name} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="cart-price col-lg-2">
+                            <p className="mb-0"> ${p.product.cost / 100}</p>
+                        </div>
+                        <div className="cart-quantity-box col-lg-2">
+                            <button className="cart-update"
+                                onClick={() => increaseQ(p.id)}
+                                value={p.quantity}><i class="far fa-plus-square fa-lg"></i></button>
+                            {p.quantity}
+                            <button className="cart-update "
+                                onClick={() => decreaseQ(p.id)}
+                                value={p.quantity}><i class="far fa-minus-square fa-lg"></i></button>
+                        </div>
+                        <div className="cart-total col-lg-2">
+                            <p className="mb-0"> ${p.product.cost * p.quantity / 100}</p>
+                        </div>
+                        <div className="cart-delete col-lg-2">
+                            <button className="cart-delete mb-1" onClick={() => deleteItem(p.id)}><i class="fas fa-trash fa-lg"></i></button>
+
+                        </div>
                     </div>
-                    <div>
-                        <button className="btn btn-success"
-                            onClick={() => increaseQ(p.id)}
-                            value={p.quantity}>+</button>
-                        {p.quantity}
-                        <button className="btn btn-warning"
-                            onClick={() => decreaseQ(p.id)}
-                            value={p.quantity}>-</button>
-                    </div>
-                    <button className="btn btn-danger" onClick={() => deleteItem(p.id)}>Delete Item</button>
+                    <hr></hr>
                 </React.Fragment>
             )
         })
@@ -111,11 +126,43 @@ export default function ShoppingCart() {
     } else {
         return (
             <React.Fragment>
-                <h1> Shopping Cart</h1>
-                <div>{renderCart()}</div>
-                <h4>Total Cost: {totalCost}</h4>
+                <h1 className="text-center my-4"> My Shopping Cart</h1>
 
-                <Link to="/checkout"> <button className="btn btn-primary">Checkout </button></Link>
+                <div className="row container-fluid">
+                    <div className="cart-items-wrapper col-lg-9 col-sm-12 p-3">
+                        <div className="row cart-header">
+                            <div className="col-lg-4">
+                                <p>Product</p>
+                            </div>
+                            <div className="col-lg-2">
+                                <p>Price</p>
+                            </div>
+                            <div className="col-lg-2">
+                                <p>Qty</p>
+                            </div>
+                            <div className="col-lg-2">
+                                <p>Total</p>
+                            </div>
+                            <div className="col-lg-2">
+                                <p>Delete</p>
+                            </div>
+                            <hr></hr>
+                        </div>
+                        {renderCart()}
+                    </div>
+                    <div className="cart-cost-wrapper col-lg-3 col-sm-12 p-3">
+                        <p className="cart-header mt-5"> SUBTOTAL: </p>
+                        <div className="checkout-wrapper">
+                            <p>  ${(totalCost / 100)} </p>
+                            <Link className="btn allbtn" to="/checkout"> Checkout </Link>
+
+                        </div>
+                        <p className="payment-terms"> Payment by Stripe <br></br>
+                            Shipping and tax calculated at checkout
+                        </p>
+                    </div>
+                </div>
+
             </React.Fragment>
         )
     }

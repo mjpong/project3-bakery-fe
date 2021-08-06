@@ -21,9 +21,19 @@
 
 }
 
-/* NAV LINKS */
+.allbtn {
+    border: 1.5px solid #db693c;
+    text-transform: uppercase;
+    color: #272727;
+    text-align: center;
+    padding: 5px 10px;
+    background:transparent;
+    border-radius: 4px;
+}
 
-.navbar, .logo-wrapper {
+/* NAV + FOOTER LINKS */
+
+.navbar, .logo-wrapper, .footer {
     background-color: #FFEFD4;
 }
 
@@ -33,9 +43,9 @@
 }
 
 .nav-link, .nav-link:hover, .nav-link:visited, 
-.dropdown-item, .dropdown-item:hover,
-.footer-link, .footer-link:hover {
-    color: orange;
+.dropdown-item, .dropdown-item:hover, .dropdown-item:visited,
+.footer-link, .footer-link:hover, .footer-link:visited {
+    color: rgb(231, 152, 5);
     text-decoration: none;
 }
 
@@ -75,10 +85,6 @@
 .hero-text{
     color: #C85103;
     font-family: 'Bangers', cursive;
-}
-
-.weekly-product {
-    background-color: #fff2dc;
 }
 
 .feature-img {
@@ -140,7 +146,74 @@
     background-color: rgba(255, 166, 0, 0.555);
 }
 
+/* Single Product */
+.description-wrapper {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 228, 179, 0.555)
+}
 
+.single-product-title {
+    text-align: center;
+}
+
+.single-product-image{
+    display: flex;
+    justify-content: center;
+}
+
+/* Cart */
+
+.cart-header, .checkout-wrapper {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.cart-each-wrapper{
+    text-align: center;
+}
+
+.cart-image {
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+
+}
+.cart-item {
+    display: flex;
+    justify-content: center;
+}
+.cart-text, .cart-delete, .cart-total, .cart-price, .cart-quantity-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-delete, .cart-update{
+    border: none;
+    background: none;
+    color: #4a4a4a;
+    padding: 0;
+}
+
+.cart-update{
+    margin: 0px 8px;
+}
+
+.payment-terms {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.cart-cost-wrapper{
+    background-color:#FFEFD4;
+}
 
 /* MOBILE SIZE */
 

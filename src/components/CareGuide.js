@@ -19,11 +19,21 @@ export default function CareGuide() {
                             For the quickest reheat, spread butter over each cinnamon roll and microwave for 1 minute on high.
                             Finished cinnamon rolls should keep covered at room temperature for 2-3 days.
                         </p>
+
                     </div>
                     <div className="col-sm-6 col-12 care-guide-image p-3">
                         <img src={require("../images/hero.jpeg").default} width="100%" height="100%" alt="care-guide" />
                     </div>
-
+                    <div className="reheat-instructions">
+                        <h4>Reheating Instructions: </h4>
+                        <p>Oven:
+                            Preheat your oven to 350°F.Place your cinnamon rolls in a baking dish and cover with foil.
+                            Heat the cinnamon rolls for 10 minutes or until they are warm and the frosting has softened.
+                        </p>
+                        <p>Microwave:
+                            Place your cinnamon rolls on a microwave-safe dish.
+                            Heat for 30 seconds. Check the cinnamon rolls and repeat until they’re thoroughly heated.</p>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
