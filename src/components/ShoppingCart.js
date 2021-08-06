@@ -112,10 +112,17 @@ export default function ShoppingCart() {
         })
         if (list[0] === undefined) {
             list.push(
-                <div>
-                    <p>It appears that your shopping cart is currently empty!</p>
-                    <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
-                </div>
+                <React.Fragment>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <div className="col-sm-12 cart-header text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" />
+                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <p>Add something to make me happy!</p>
+                        </div>
+                    </tr>
+                </React.Fragment>
+
             )
         }
         return list
