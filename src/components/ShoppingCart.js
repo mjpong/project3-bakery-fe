@@ -7,6 +7,7 @@ const BASE_URL = config.BASE_URL
 export default function ShoppingCart() {
     const history = useHistory();
     const [loaded, setLoaded] = useState(false)
+    const [increaseFailed, setIncreaseFailed] = useState(false)
     const [shoppingCartItem, setShoppingCartItem] = useState([])
     const [totalCost, setTotalCost] = useState(0)
 
@@ -32,7 +33,12 @@ export default function ShoppingCart() {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
         })
-
+        console.log(response.data)
+        if (response.data.message === "Cannot increase item") {
+            setIncreaseFailed(true)
+        } else {
+            setIncreaseFailed(false)
+        }
         fetch()
     }
 
@@ -65,9 +71,28 @@ export default function ShoppingCart() {
 
     const renderCart = () => {
         let list = []
+        console.log(shoppingCartItem)
         shoppingCartItem.map(p => {
             list.push(
                 <React.Fragment>
+                    <div className="row cart-header">
+                        <div className="col-lg-4">
+                            <p>Product</p>
+                        </div>
+                        <div className="col-lg-2">
+                            <p>Price</p>
+                        </div>
+                        <div className="col-lg-2">
+                            <p>Qty</p>
+                        </div>
+                        <div className="col-lg-2">
+                            <p>Total</p>
+                        </div>
+                        <div className="col-lg-2">
+                            <p>Delete</p>
+                        </div>
+                        <hr></hr>
+                    </div>
                     <div className="cart-each-wrapper row">
                         <div className="col-lg-4">
                             <div className="cart-item row">
@@ -108,7 +133,10 @@ export default function ShoppingCart() {
         })
         if (list[0] === undefined) {
             list.push(
-                <div> There are no items</div>
+                <div>
+                    <p>It appears that your shopping cart is currently empty!</p>
+                    <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
+                </div>
             )
         }
         return list
@@ -129,25 +157,10 @@ export default function ShoppingCart() {
                 <h1 className="text-center my-4"> My Shopping Cart</h1>
 
                 <div className="row container-fluid">
+                    <div className="increase-failed" style={{ display: increaseFailed === true ? "block" : "none" }}>
+                        <p>Sorry, there is only left in stock.</p>
+                    </div>
                     <div className="cart-items-wrapper col-lg-9 col-sm-12 p-3">
-                        <div className="row cart-header">
-                            <div className="col-lg-4">
-                                <p>Product</p>
-                            </div>
-                            <div className="col-lg-2">
-                                <p>Price</p>
-                            </div>
-                            <div className="col-lg-2">
-                                <p>Qty</p>
-                            </div>
-                            <div className="col-lg-2">
-                                <p>Total</p>
-                            </div>
-                            <div className="col-lg-2">
-                                <p>Delete</p>
-                            </div>
-                            <hr></hr>
-                        </div>
                         {renderCart()}
                     </div>
                     <div className="cart-cost-wrapper col-lg-3 col-sm-12 p-3">
@@ -155,11 +168,13 @@ export default function ShoppingCart() {
                         <div className="checkout-wrapper">
                             <p>  ${(totalCost / 100)} </p>
                             <Link className="btn allbtn" to="/checkout"> Checkout </Link>
-
                         </div>
                         <p className="payment-terms"> Payment by Stripe <br></br>
                             Shipping and tax calculated at checkout
                         </p>
+                    </div>
+                    <div>
+                        <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
                     </div>
                 </div>
 

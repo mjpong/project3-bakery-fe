@@ -29,7 +29,6 @@ export default function IndividualOrder() {
             })
             setOrderInfo(response.data)
             setOrderDetails(response.data.orders_products)
-            console.log(response.data.orders_products)
             setIsLoaded(true)
 
         }
@@ -50,9 +49,6 @@ export default function IndividualOrder() {
         }
         return list
     }
-
-
-
 
 
     if (isLoaded === false) {
