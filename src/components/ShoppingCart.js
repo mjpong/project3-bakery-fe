@@ -71,63 +71,40 @@ export default function ShoppingCart() {
 
     const renderCart = () => {
         let list = []
-        console.log(shoppingCartItem)
         shoppingCartItem.map(p => {
             list.push(
                 <React.Fragment>
-                    <div className="row cart-header">
-                        <div className="col-lg-4">
-                            <p>Product</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <p>Price</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <p>Qty</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <p>Total</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <p>Delete</p>
-                        </div>
-                        <hr></hr>
-                    </div>
-                    <div className="cart-each-wrapper row">
-                        <div className="col-lg-4">
-                            <div className="cart-item row">
-                                <div className="cart-image col-lg-6" style={{
-                                    backgroundImage: `url(${p.product.image})`
-                                }}>
-                                </div>
-                                <div className="cart-text col-lg-6">
-                                    <div>
-                                        <p className="mt-1 mb-0"> {p.product.name} </p>
-                                    </div>
-                                </div>
+                    <tr key={p.id}>
+                        <td className="align-middle">
+                            <div className="cart-image " style={{
+                                backgroundImage: `url(${p.product.image})`
+                            }}>
                             </div>
-                        </div>
-                        <div className="cart-price col-lg-2">
+                            <p className="mt-1 mb-0"> {p.product.name} </p>
+                        </td>
+                        <td className="align-middle">
                             <p className="mb-0"> ${p.product.cost / 100}</p>
-                        </div>
-                        <div className="cart-quantity-box col-lg-2">
-                            <button className="cart-update"
-                                onClick={() => increaseQ(p.id)}
-                                value={p.quantity}><i class="far fa-plus-square fa-lg"></i></button>
-                            {p.quantity}
-                            <button className="cart-update "
-                                onClick={() => decreaseQ(p.id)}
-                                value={p.quantity}><i class="far fa-minus-square fa-lg"></i></button>
-                        </div>
-                        <div className="cart-total col-lg-2">
+                        </td>
+                        <td className="align-middle">
+                            <div className="cart-quantity-box">
+                                <button className="cart-update"
+                                    onClick={() => increaseQ(p.id)}
+                                    value={p.quantity}><i class="far fa-plus-square fa-lg"></i></button>
+                                {p.quantity}
+                                <button className="cart-update "
+                                    onClick={() => decreaseQ(p.id)}
+                                    value={p.quantity}><i class="far fa-minus-square fa-lg"></i></button>
+                            </div>
+                        </td>
+                        <td className="align-middle">
                             <p className="mb-0"> ${p.product.cost * p.quantity / 100}</p>
-                        </div>
-                        <div className="cart-delete col-lg-2">
-                            <button className="cart-delete mb-1" onClick={() => deleteItem(p.id)}><i class="fas fa-trash fa-lg"></i></button>
-
-                        </div>
-                    </div>
-                    <hr></hr>
+                        </td>
+                        <td className="align-middle">
+                            <div className="cart-delete">
+                                <button className="cart-delete mb-1" onClick={() => deleteItem(p.id)}><i class="fas fa-trash fa-lg"></i></button>
+                            </div>
+                        </td>
+                    </tr>
                 </React.Fragment>
             )
         })
@@ -161,7 +138,20 @@ export default function ShoppingCart() {
                         <p>Sorry, there is only left in stock.</p>
                     </div>
                     <div className="cart-items-wrapper col-lg-9 col-sm-12 p-3">
-                        {renderCart()}
+                        <table className="table order-product-table">
+                            <thead>
+                                <tr>
+                                    <th className="cart-header">Product</th>
+                                    <th className="cart-header">Price</th>
+                                    <th className="cart-header">Quantity</th>
+                                    <th className="cart-header">Delete</th>
+                                    <th className="cart-header">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {renderCart()}
+                            </tbody>
+                        </table>
                     </div>
                     <div className="cart-cost-wrapper col-lg-3 col-sm-12 p-3">
                         <p className="cart-header mt-5"> SUBTOTAL: </p>
@@ -181,6 +171,5 @@ export default function ShoppingCart() {
             </React.Fragment>
         )
     }
-
 
 }

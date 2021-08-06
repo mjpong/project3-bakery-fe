@@ -42,17 +42,22 @@ export default function IndividualOrder() {
             list.push(
 
                 <tr key={p.id}>
-                    <td><div className="cart-image " style={{
-                        backgroundImage: `url(${p.product.image})`
-                    }}>
-                    </div>
+                    <td className="align-middle">
+                        <div className="cart-image " style={{
+                            backgroundImage: `url(${p.product.image})`
+                        }}>
+                        </div>
+                        <p className="mb-0 mt-1"> {p.product.name} </p>
                     </td>
-                    <td>
-                        <p> {p.product.name} </p>
+                    <td className="align-middle">
+                        <p> ${p.product.cost / 100}</p>
                     </td>
-                    <td><p> ${p.product.cost / 100}</p></td>
-                    <td>{p.quantity}</td>
-                    <td> <p> ${p.product.cost * p.quantity / 100}</p></td>
+                    <td className="align-middle">
+                        <p> {p.quantity}</p>
+                    </td>
+                    <td className="align-middle">
+                        <p> ${p.product.cost * p.quantity / 100}</p>
+                    </td>
                 </tr>
             )
         }
@@ -77,11 +82,12 @@ export default function IndividualOrder() {
                 <div className=" container order-details">
                     <h2 className="mt-4">Order {orderInfo.id} Details </h2>
                     <hr></hr>
+
                     <div className="table-responsive-sm">
                         <table className="table user-order-table">
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td className="cart-header">
                                         Receiver Name:
                                     </td>
                                     <td>
@@ -89,7 +95,7 @@ export default function IndividualOrder() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td className="cart-header">
                                         Receiver Address:
                                     </td>
                                     <td>
@@ -97,7 +103,7 @@ export default function IndividualOrder() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td className="cart-header">
                                         Order Date:
                                     </td>
                                     <td>
@@ -105,24 +111,24 @@ export default function IndividualOrder() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        Order Total Cost:
+                                    <td className="cart-header">
+                                        Total Order Cost:
                                     </td>
                                     <td>
                                         ${orderInfo.total_cost / 100}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Completion Date:</td>
-                                    <td>{orderInfo.completion_date == null ? "In Progress" : orderInfo.completion_date.slice(0, 10)}</td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    <td className="cart-header">
                                         Order Status:
                                     </td>
                                     <td>
                                         {orderInfo.order_status.status}
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td className="cart-header">Completion Date:</td>
+                                    <td>{orderInfo.completion_date == null ? "In Progress" : orderInfo.completion_date.slice(0, 10)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -134,11 +140,10 @@ export default function IndividualOrder() {
                         <table className="table order-product-table">
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th className="cart-header">Product</th>
+                                    <th className="cart-header">Price</th>
+                                    <th className="cart-header">Quantity</th>
+                                    <th className="cart-header">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
