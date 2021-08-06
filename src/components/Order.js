@@ -40,29 +40,37 @@ export default function Order() {
         }
         if (list.length === 0) {
             list.push(
-                <div>There are no orders.</div>
+                <div>
+                    <p>You don't have any orders</p>
+                    <div>
+                        <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
+                    </div>
+                </div>
             )
         }
         return list
     }
     return (
         <React.Fragment>
-            <h1>Order Page</h1>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Status</th>
-                        <th>Placed on</th>
-                        <th>Subtotal</th>
-                        <th>Completed on</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {renderOrders()}
-                </tbody>
-            </table>
+            <h1 className="m-3">My Orders</h1>
+            <div className="orders-wrapper table-responsive-sm">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Status</th>
+                            <th>Placed on</th>
+                            <th>Subtotal</th>
+                            <th>Completed on</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {renderOrders()}
+                    </tbody>
+                </table>
+            </div>
+
         </React.Fragment>
     )
 }
