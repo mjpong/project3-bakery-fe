@@ -103,7 +103,7 @@ export default function ProductListing() {
             <React.Fragment>
                 <div className="container-fluid">
                     <div className="row mt-3">
-                        <div className="filter-wrapper col-3">
+                        <div className="filter-wrapper col-lg-3 col-md-3 col-sm-12">
                             <div className="filter-title">
                                 <h5>Filter & Search</h5>
                             </div>
@@ -129,11 +129,11 @@ export default function ProductListing() {
                                 <button type="submit" className="btn icon-buttons my-1 mx-sm-2 " onClick={resetQuery}><i class="fas fa-undo-alt"></i></button>
                             </div>
                         </div>
-                        <div className="col-9">
-                            <h4> OUR ROLLS </h4>
-                            <div className="header-image-wrapper mb-3">
+                        <div className="col-lg-9 col-md-9 col-sm-12">
+                            <h1 className="text-center mt-3"> OUR ROLLS </h1>
+                            <div className="header-image-wrapper my-3">
                             </div>
-                            <p> Showing {products.length} items</p>
+                            <p style={{ fontStyle: 'italic' }}> Showing {products.length} rolls... </p>
                             <div className="row">
                                 {renderProducts()}
                             </div>

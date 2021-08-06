@@ -44,9 +44,10 @@ export default class Landing extends React.Component {
 
                 <div className="about-us row p-3 mt-3">
                     <h2 className="text-center">ABOUT US</h2>
+                    <hr></hr>
                     <div className="row">
                         <div className="col-sm-6 col-12 p-3 about-us-text">
-                            <p>We make phenomenal cinnamon rolls!
+                            <p className="mb-0">We make phenomenal cinnamon rolls!
                                 Roll With Me is a small independent bakery based in Singapore, known for its super fab and tasty cinnamon rolls.
                                 We make everything in-house from scratch daily with only the finest ingredients, bringing the best rolls to you.</p>
                         </div>
@@ -58,6 +59,7 @@ export default class Landing extends React.Component {
                 </div>
                 <div className="weekly-product">
                     <h2 className="pt-3 text-center">FEATURED PRODUCT OF THE WEEK</h2>
+                    <hr></hr>
                     <div className="landing-product-wrapper p-3 ">
                         <Link to={"/products/4"} className="product-link row">
                             <div className="col-sm-6 col-12 feature-img">
@@ -71,10 +73,8 @@ export default class Landing extends React.Component {
                                 </div>
                             </div>
                         </Link>
-
                     </div>
                 </div>
-
             </React.Fragment>
 
         )

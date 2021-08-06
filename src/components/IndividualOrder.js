@@ -43,7 +43,7 @@ export default function IndividualOrder() {
 
                 <tr key={p.id}>
                     <td className="align-middle">
-                        <div className="cart-image " style={{
+                        <div className="cart-image mt-1 " style={{
                             backgroundImage: `url(${p.product.image})`
                         }}>
                         </div>
@@ -80,10 +80,10 @@ export default function IndividualOrder() {
                     <h4>Payment Failed, Order Not Successful</h4>
                 </div>
                 <div className=" container order-details">
-                    <h2 className="mt-4">Order {orderInfo.id} Details </h2>
+                    <h1 className="mt-4 text-center">Order {orderInfo.id} Details </h1>
                     <hr></hr>
 
-                    <div className="table-responsive-sm">
+                    <div className="table-responsive-sm user-order-wrapper">
                         <table className="table user-order-table">
                             <tbody>
                                 <tr>
@@ -134,7 +134,7 @@ export default function IndividualOrder() {
                         </table>
                     </div>
 
-                    <h2 className="text-center">Product Details</h2>
+                    <h3 className="text-center mt-3">Product Details</h3>
                     <hr></hr>
                     <div className="container table-responsive-sm p-3">
                         <table className="table order-product-table">

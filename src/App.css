@@ -103,7 +103,6 @@
     background-size: cover;
     position: relative;
     margin: 0px -20px;
-    
 }
 
 .hero-wrapper{
@@ -125,6 +124,9 @@
 .hero-text{
     color: #C85103;
     font-family: 'Bangers', cursive;
+    margin-bottom: 0px;
+    padding: 5px;
+    font-size: 45px;
 }
 
 .feature-img {
@@ -221,7 +223,6 @@
 
 .cart-each-wrapper{
     text-align: center;
-    
 }
 
 .cart-image {
@@ -236,11 +237,6 @@
     display: flex;
     justify-content: center;
 }
-/* .cart-text, .cart-delete, .cart-total, .cart-price, .cart-quantity-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
 
 .cart-delete, .cart-update{
     border: none;
@@ -292,15 +288,58 @@
     text-align: center;
     margin: 10px;
 }
-/* MOBILE SIZE */
 
-@media screen and (max-width: 767px) {
+/* USERS */
 
-    .feature-name{
+.login-wrapper{
+    padding: 20px;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.create-account-wrapper{
+    padding: 20px;
+    margin: 10px auto;
+}
+
+.create-account-form{
+    margin-top: 15px;
+}
+
+
+/* Tablets Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .user-order-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Mobile Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+     .feature-name{
         justify-content: center;
         margin-top: 10px
     } 
     .feature-img{
         text-align: center;
     }
+
+    .hero-text {
+        font-size: 40px;
+    }
+
+    .user-order-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+
 }

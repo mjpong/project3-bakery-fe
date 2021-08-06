@@ -5,9 +5,10 @@ export default function CareGuide() {
     return (
         <React.Fragment>
             <div className="care-guide-wrapper row p-3 mt-3">
-                <h1 className="care-title text-center"> Roll With Me Care Guide </h1>
+                <h1 className="care-title text-center"> ROLL WITH CARE </h1>
+                <hr></hr>
                 <div className="row">
-                    <div className="col-sm-6 col-12 p-3 care-guide-text">
+                    <div className="col-sm-6 col-md-12 col-lg-12 p-3 care-guide-text">
                         <p>
                             There’s nothing like the smell of freshly baked cinnamon rolls.
                             But, what happens when you can’t eat them all yourself?
@@ -21,7 +22,7 @@ export default function CareGuide() {
                         </p>
 
                     </div>
-                    <div className="col-sm-6 col-12 care-guide-image p-3">
+                    <div className="col-sm-6 col-md-12 col-lg-12 care-guide-image p-3">
                         <img src={require("../images/hero.jpeg").default} width="100%" height="100%" alt="care-guide" />
                     </div>
                     <div className="reheat-instructions">

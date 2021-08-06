@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import config from "../config"
 const BASE_URL = config.BASE_URL
 
@@ -14,7 +14,7 @@ export default function CreateAccount() {
         'password': '',
         'confirmPassword': '',
         'dob': '',
-        'phone':''
+        'phone': ''
 
     })
     const [registerState, setRegisterState] = useState(false)
@@ -26,7 +26,7 @@ export default function CreateAccount() {
             }
         )
     }
-    
+
     const createAccount = async () => {
         const response = await axios.post(BASE_URL + '/api/users/register', formState)
         if (response.data !== "Unable to create user") {
@@ -40,9 +40,10 @@ export default function CreateAccount() {
 
     return (
         <React.Fragment>
-            <h1> Create New Account</h1>
-            <div className="row">
-                <div className="create-account-form col-7">
+            <h1 className="mt-3 text-center"> CREATE NEW ACCOUNT </h1>
+            <hr></hr>
+            <div className="row create-account-wrapper">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Name: </div>
                     <input className="form-control"
                         name="name" type="text"
@@ -50,7 +51,7 @@ export default function CreateAccount() {
                         value={formState.fullname}
                         onChange={updateFormField} />
                 </div>
-                <div className="create-account-form col-7">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Email: </div>
                     <input className="form-control"
                         name="email" type="text"
@@ -58,7 +59,7 @@ export default function CreateAccount() {
                         value={formState.email}
                         onChange={updateFormField} />
                 </div>
-                <div className="create-account-form col-7">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Password: </div>
                     <input className="form-control"
                         name="password" type="password"
@@ -66,7 +67,7 @@ export default function CreateAccount() {
                         value={formState.password}
                         onChange={updateFormField} />
                 </div>
-                <div className="create-account-form col-7">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Confirm Password: </div>
                     <input className="form-control"
                         name="confirmPassword" type="password"
@@ -74,7 +75,7 @@ export default function CreateAccount() {
                         value={formState.confirmPassword}
                         onChange={updateFormField} />
                 </div>
-                <div className="create-account-form col-7">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Phone: </div>
                     <input className="form-control"
                         name="phone" type="number"
@@ -82,7 +83,7 @@ export default function CreateAccount() {
                         value={formState.phone}
                         onChange={updateFormField} />
                 </div>
-                <div className="create-account-form col-7">
+                <div className="create-account-form col-lg-7 col-12">
                     <div className="form-label">Date Of Birth: </div>
                     <input className="form-control"
                         name="dob" type="date"
@@ -98,11 +99,12 @@ export default function CreateAccount() {
                         value={formState.address}
                         onChange={updateFormField} />
                 </div>
-                
-                
-                
+                <div className="mt-3">
+                    <button className="btn allbtn" onClick={createAccount}>Create Account</button>
+                </div>
+
             </div>
-            <button className="btn btn-primary" onClick={createAccount}>Create Account</button>
+
         </React.Fragment>
     )
 }

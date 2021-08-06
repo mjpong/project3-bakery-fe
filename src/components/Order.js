@@ -52,7 +52,8 @@ export default function Order() {
     }
     return (
         <React.Fragment>
-            <h1 className="m-3">My Orders</h1>
+            <h1 className="m-3 text-center"> MY ORDERS </h1>
+            <hr></hr>
             <div className="orders-wrapper table-responsive-sm ">
                 <table className="table">
                     <thead>

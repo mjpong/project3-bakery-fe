@@ -76,7 +76,7 @@ export default function ShoppingCart() {
                 <React.Fragment>
                     <tr key={p.id}>
                         <td className="align-middle">
-                            <div className="cart-image " style={{
+                            <div className="cart-image mt-1" style={{
                                 backgroundImage: `url(${p.product.image})`
                             }}>
                             </div>
@@ -137,7 +137,7 @@ export default function ShoppingCart() {
                     <div className="increase-failed" style={{ display: increaseFailed === true ? "block" : "none" }}>
                         <p>Sorry, there is only left in stock.</p>
                     </div>
-                    <div className="cart-items-wrapper col-lg-9 col-sm-12 p-3">
+                    <div className="cart-items-wrapper table-responsive-sm col-lg-9 col-sm-12 p-3">
                         <table className="table order-product-table">
                             <thead>
                                 <tr>
@@ -154,7 +154,7 @@ export default function ShoppingCart() {
                         </table>
                     </div>
                     <div className="cart-cost-wrapper col-lg-3 col-sm-12 p-3">
-                        <p className="cart-header mt-5"> SUBTOTAL: </p>
+                        <p className="cart-header mt-lg-5 mt-sm-3 mt-md-3"> SUBTOTAL: </p>
                         <div className="checkout-wrapper">
                             <p>  ${(totalCost / 100)} </p>
                             <Link className="btn allbtn" to="/checkout"> Checkout </Link>
@@ -163,7 +163,7 @@ export default function ShoppingCart() {
                             Shipping and tax calculated at checkout
                         </p>
                     </div>
-                    <div>
+                    <div className="mt-3">
                         <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
                     </div>
                 </div>
