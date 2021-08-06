@@ -96,11 +96,11 @@ function App() {
                 <nav className="navbar sticky-top navbar-expand-md">
                     <div className="container-fluid">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
+                                <li className="nav-item active">
                                     <Link className="nav-link" to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
@@ -186,9 +186,9 @@ function App() {
                     </Switch>
                 </div>
 
-                <div className="footer container-fluid mt-3">
+                <div className="footer container-fluid p-3 mt-3">
                     <div className="row">
-                        <section className="footer-left col-4">
+                        <section className="footer-left col-6">
                             <p className="footer-header">Quick Links</p>
                             <li style={{ display: loggedIn === false ? "block" : "block" }}>
                                 <Link className="footer-link" to="/products">Cinnamon Rolls</Link>
@@ -210,11 +210,8 @@ function App() {
                                     to="/">Logout</Link>
                             </li>
                         </section>
-                        <section className="footer-center col-4">
 
-
-                        </section>
-                        <section className="footer-right col-4">
+                        <section className="footer-right col-6">
                             <p className="footer-header">Contact Us</p>
                             <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
                             <p className="footer-text"><i class="far fa-envelope"></i><a className="footer-link" href="mailto:letsroll@rollwithme.com"> Email Us </a></p>

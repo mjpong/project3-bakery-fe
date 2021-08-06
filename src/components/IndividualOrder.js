@@ -38,16 +38,26 @@ export default function IndividualOrder() {
 
     const renderOrderDetails = () => {
         let list = []
-        for (let o of orderDetails) {
+        for (let p of orderDetails) {
             list.push(
-                <tr key={o.id}>
-                    <td>{o.product.name}</td>
-                    <td>{o.quantity}</td>
-                    <td>${o.product.cost / 100}</td>
+
+                <tr key={p.id}>
+                    <td><div className="cart-image " style={{
+                        backgroundImage: `url(${p.product.image})`
+                    }}>
+                    </div>
+                    </td>
+                    <td>
+                        <p> {p.product.name} </p>
+                    </td>
+                    <td><p> ${p.product.cost / 100}</p></td>
+                    <td>{p.quantity}</td>
+                    <td> <p> ${p.product.cost * p.quantity / 100}</p></td>
                 </tr>
             )
         }
         return list
+
     }
 
 
@@ -64,29 +74,80 @@ export default function IndividualOrder() {
                 <div className="payment-failed" style={{ display: paymentFailed === true ? "block" : "none" }}>
                     <h4>Payment Failed, Order Not Successful</h4>
                 </div>
-                <div className="order-details">
-                    <h1>Order Information</h1>
-                    <h1>Displaying Order {orderInfo.id}</h1>
-                    <p>User ID: {orderInfo.user_id}</p>
-                    <p>Receiver Name: {orderInfo.reciever_name}</p>
-                    <p>Receiver Address: {orderInfo.receiver_address}</p>
-                    <p>Date: {orderInfo.order_date.slice(0, 10)}</p>
-                    <p>Total Cost: ${orderInfo.total_cost / 100}</p>
-                    <h1>Product Details</h1>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Unit Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {renderOrderDetails()}
-                        </tbody>
-                    </table>
+                <div className=" container order-details">
+                    <h2 className="mt-4">Order {orderInfo.id} Details </h2>
+                    <hr></hr>
+                    <div className="table-responsive-sm">
+                        <table className="table user-order-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Receiver Name:
+                                    </td>
+                                    <td>
+                                        {orderInfo.reciever_name}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Receiver Address:
+                                    </td>
+                                    <td>
+                                        {orderInfo.receiver_address}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Order Date:
+                                    </td>
+                                    <td>
+                                        {orderInfo.order_date.slice(0, 10)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Order Total Cost:
+                                    </td>
+                                    <td>
+                                        ${orderInfo.total_cost / 100}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Completion Date:</td>
+                                    <td>{orderInfo.completion_date == null ? "In Progress" : orderInfo.completion_date.slice(0, 10)}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Order Status:
+                                    </td>
+                                    <td>
+                                        {orderInfo.order_status.status}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 className="text-center">Product Details</h2>
+                    <hr></hr>
+                    <div className="container table-responsive-sm p-3">
+                        <table className="table order-product-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {renderOrderDetails()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         )
     }
 }

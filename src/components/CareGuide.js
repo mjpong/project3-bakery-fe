@@ -26,12 +26,12 @@ export default function CareGuide() {
                     </div>
                     <div className="reheat-instructions">
                         <h4>Reheating Instructions: </h4>
-                        <p>Oven:
-                            Preheat your oven to 350°F.Place your cinnamon rolls in a baking dish and cover with foil.
+                        <p>Oven: <br></br>
+                            Preheat your oven to 350°F. Place your cinnamon rolls in a baking dish and cover with foil. <br></br>
                             Heat the cinnamon rolls for 10 minutes or until they are warm and the frosting has softened.
                         </p>
-                        <p>Microwave:
-                            Place your cinnamon rolls on a microwave-safe dish.
+                        <p>Microwave: <br></br>
+                            Place your cinnamon rolls on a microwave-safe dish. <br></br>
                             Heat for 30 seconds. Check the cinnamon rolls and repeat until they’re thoroughly heated.</p>
                     </div>
                 </div>

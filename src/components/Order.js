@@ -53,7 +53,7 @@ export default function Order() {
     return (
         <React.Fragment>
             <h1 className="m-3">My Orders</h1>
-            <div className="orders-wrapper table-responsive-sm">
+            <div className="orders-wrapper table-responsive-sm ">
                 <table className="table">
                     <thead>
                         <tr>

@@ -277,6 +277,11 @@
     padding: 10px;
 }
 
+.user-order-table {
+    width: 500px;
+}
+
+
 /* MOBILE SIZE */
 
 @media screen and (max-width: 767px) {
