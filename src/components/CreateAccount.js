@@ -48,7 +48,7 @@ export default function CreateAccount() {
                     <input className="form-control"
                         name="name" type="text"
                         placeholder="Name"
-                        value={formState.fullname}
+                        value={formState.name}
                         onChange={updateFormField} />
                 </div>
                 <div className="create-account-form col-lg-7 col-12">
