@@ -264,7 +264,7 @@
 
 /* ORDERS */
 
-.payment-failed {
+.payment-failed, .email-in-use {
     text-align: center;
     border: rgb(245, 102, 102) solid 5px;
     margin: 15px;
@@ -292,6 +292,11 @@
 
 /* USERS */
 
+.form-error-text{
+    margin-top: 10px;
+    color: rgb(209, 23, 23);
+    font-style: italic;
+}
 .login-wrapper {
     padding: 20px;
     max-width: 600px;
@@ -322,6 +327,15 @@ ul.profile-list {
 
 .click-edit{
     text-align: center;
+}
+
+.created-account {
+    text-align: center;
+    color: rgb(5, 172, 5);
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size:19px;
+    text-transform: uppercase;
 }
 
 

@@ -11,11 +11,13 @@ export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [loginError, setLoginError] = useState(false)
+    const [created, setCreated] = useState(false)
     let context = useContext(LoginContext)
 
     useEffect(() => {
         if (query.get("email")) {
             setEmail(query.get("email"));
+            setCreated(true)
         }
     }, [])
 
@@ -42,9 +44,15 @@ export default function Login() {
 
     return (
         <React.Fragment>
-            <h1 className="text-center mt-3"> LOGIN TO YOUR ACCOUNT </h1>
-            <hr></hr>
+            <div>
+                <p className="created-account"
+                    style={{ display: created === true ? "block" : "none" }}>
+                    Account has been updated, please sign in.
+                </p>
+            </div>
             <div className="login-wrapper">
+                <h1 className="text-center mt-3"> LOGIN TO YOUR ACCOUNT </h1>
+                <hr></hr>
                 <div className="form-label">Email: </div>
                 <input className="form-control" type="text" name="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
                 <div className="form-label mt-3">Password: </div>
