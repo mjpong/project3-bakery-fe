@@ -9,7 +9,6 @@ export default function CreateAccount() {
     const history = useHistory()
     const [registerError, setRegisterError] = useState(false)
     const [confirmPasswordFail, setConfirmPasswordFail] = useState(false)
-    const [formValid, setFormValid] = useState(false)
     const [emailInUse, setEmailInUse] = useState(false)
     const [errorState, setErrorState] = useState({})
     const [formState, setFormState] = useState({
@@ -117,7 +116,7 @@ export default function CreateAccount() {
                                 name="name" type="text"
                                 placeholder="Name"
                                 value={formState.name}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <div className="form-error-text">
                                 {errorState["nameError"]}
                             </div>
@@ -128,7 +127,7 @@ export default function CreateAccount() {
                                 name="email" type="text"
                                 placeholder="Email"
                                 value={formState.email}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <div className="form-error-text">
                                 {errorState["emailError"]}
                             </div>
@@ -140,7 +139,7 @@ export default function CreateAccount() {
                                 name="password" type="password"
                                 placeholder="Password"
                                 value={formState.password}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 Your password must be 8-20 characters long.
                             </small>
@@ -156,7 +155,7 @@ export default function CreateAccount() {
                                 name="confirmPassword" type="password"
                                 placeholder="Confirm Password"
                                 value={formState.confirmPassword}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <p className="form-error-text"
                                 style={{ display: confirmPasswordFail === true ? "block" : "none" }}>
                                 Please make sure passwords match
@@ -168,7 +167,7 @@ export default function CreateAccount() {
                                 name="phone" type="number"
                                 placeholder="Phone"
                                 value={formState.phone}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <div className="form-error-text">
                                 {errorState["phoneError"]}
                             </div>
@@ -190,7 +189,7 @@ export default function CreateAccount() {
                                 name="address" type="text"
                                 placeholder="Address"
                                 value={formState.address}
-                                onChange={updateFormField} required />
+                                onChange={updateFormField} />
                             <div className="form-error-text">
                                 {errorState["addressError"]}
                             </div>
