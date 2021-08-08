@@ -1,5 +1,5 @@
 const config = {
-    "BASE_URL":"http://localhost:8000",
+    "BASE_URL": "https://mjp-tgc12-project3.herokuapp.com",
     "REFRESH_INTERVAL": 10 * 60 * 1000
 
 }

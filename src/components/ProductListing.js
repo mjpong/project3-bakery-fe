@@ -83,7 +83,7 @@ export default function ProductListing() {
             if (p.stock >= 1) {
                 return <div className="col-lg-4 col-md-6 col-12 product-wrapper p-2" key={p.id}>
                     <Link to={"/products/" + p.id} className="product-link">
-                        <img className="product-image" key={p.id} src={p.image} width="200px" alt="img" />
+                        <img className="product-image" key={p.id} src={p.image} width="300px" height="300px" alt="img" />
                         <div className="product-name mt-2">
                             <h4>{p.name}</h4>
                             <p>${p.cost / 100}</p>

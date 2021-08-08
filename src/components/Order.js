@@ -17,6 +17,7 @@ export default function Order() {
                     authorization: "Bearer " + localStorage.getItem('accessToken')
                 }
             })
+            console.log(response.data)
 
             setOrders(response.data.reverse())
             setLoggedIn(true)

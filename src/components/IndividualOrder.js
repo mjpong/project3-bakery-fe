@@ -91,7 +91,7 @@ export default function IndividualOrder() {
                                         Receiver Name:
                                     </td>
                                     <td>
-                                        {orderInfo.reciever_name}
+                                        {orderInfo.receiver_name}
                                     </td>
                                 </tr>
                                 <tr>

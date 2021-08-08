@@ -117,7 +117,7 @@ export default function ShoppingCart() {
                         <td></td>
                         <td></td>
                         <div className="col-sm-12 cart-header text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" />
-                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <h5><strong>Your Cart is Empty</strong></h5>
                             <p>Add something to make me happy!</p>
                         </div>
                     </tr>
