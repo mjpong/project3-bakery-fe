@@ -81,7 +81,7 @@ export default function ProductListing() {
     function renderProducts() {
         return products.map(p => {
             if (p.stock >= 1) {
-                return <div className="col-lg-4 col-md-6 col-12 product-wrapper p-2" key={p.id}>
+                return <div className="col-lg-4 col-md-12 col-12 product-wrapper p-2" key={p.id}>
                     <Link to={"/products/" + p.id} className="product-link">
                         <img className="product-image" key={p.id} src={p.image} width="300px" height="300px" alt="img" />
                         <div className="product-name mt-2">
