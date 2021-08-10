@@ -90,12 +90,10 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <div className="logo-wrapper container-fluid">
-                    <div className="row">
-                        <Link className="logo-image" style={{ display: "flex", width: "160px", height: "160px" }} to="/">
-                            <img src={require("./images/RollWithMe.png").default} alt="logo" />
-                        </Link>
-                    </div>
+                <div className="logo-wrapper row">
+                    <Link className="logo-image" to="/">
+                        <img src={require("./images/RollWithMe.png").default} height="150px" width="150px" alt="logo" />
+                    </Link>
                 </div>
                 <nav className="navbar sticky-top navbar-expand-md">
                     <div className="container-fluid">

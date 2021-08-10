@@ -43,9 +43,9 @@
 .navbar-toggler-icon {
     color: rgb(231, 152, 5);
 }
+
 .logo-wrapper {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .nav-link, .nav-link:hover, .nav-link:visited, 
