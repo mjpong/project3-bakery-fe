@@ -98,7 +98,7 @@ export default function ShoppingCart() {
                                 backgroundImage: `url(${p.product.image})`
                             }}>
                             </div>
-                            <p className="mt-1 mb-0"> {p.product.name} </p>
+                            <p className="mt-1 mb-0 product-name"> {p.product.name} </p>
                         </td>
                         <td className="align-middle">
                             <p className="mb-0"> ${p.product.cost / 100}</p>

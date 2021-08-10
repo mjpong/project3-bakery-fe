@@ -44,7 +44,7 @@ export default class Landing extends React.Component {
                     <div className="row">
                         <div className="col-sm-6 col-12 p-3 about-us-text">
                             <p className="mb-0">We make phenomenal cinnamon rolls!
-                                Roll With Me is a small independent bakery based in Singapore, known for its super fab and tasty cinnamon rolls.
+                                Roll With Me is a small independent bakery based in Hong Kong and Singapore, known for its super fab and tasty cinnamon rolls.
                                 We make everything in-house from scratch daily with only the finest ingredients, bringing the best rolls to you.</p>
                         </div>
                         <div className="col-sm-6 col-12 about-us-image p-3">

@@ -62,7 +62,7 @@ export default function IndividualProduct() {
                         <img src={image} height="350px" alt="single-product" />
                     </div>
                     <div className="col-12 col-lg-7">
-                        <h1 className="single-product-title mt-3">{name}</h1>
+                        <h1 className="product-name mt-3">{name}</h1>
                         <hr></hr>
                         <p>{description}</p>
                         <p style={{ fontStyle: 'italic' }}>Price per roll: ${cost / 100}</p>

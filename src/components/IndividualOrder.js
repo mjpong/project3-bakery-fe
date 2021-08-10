@@ -47,7 +47,7 @@ export default function IndividualOrder() {
                             backgroundImage: `url(${p.product.image})`
                         }}>
                         </div>
-                        <p className="mb-0 mt-1"> {p.product.name} </p>
+                        <p className="mb-0 mt-1 product-name"> {p.product.name} </p>
                     </td>
                     <td className="align-middle">
                         <p> ${p.product.cost / 100}</p>
