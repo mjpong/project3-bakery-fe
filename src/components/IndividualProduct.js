@@ -67,7 +67,7 @@ export default function IndividualProduct() {
             <React.Fragment>
                 <div className='row p-5'>
                     <div className="single-product-image col-12 col-lg-5 ">
-                        <img src={image} height="500px" alt="single-product" />
+                        <img src={image} height="350px" alt="single-product" />
                     </div>
                     <div className="col-12 col-lg-7">
                         <h1 className="single-product-title mt-3">{name}</h1>

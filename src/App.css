@@ -181,6 +181,7 @@
     font-style: italic;
 }
 
+
 /* FILTER + SEARCH */
 
 .filter-input {
@@ -210,6 +211,7 @@
 .single-product-image{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* Cart */
