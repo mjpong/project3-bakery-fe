@@ -97,6 +97,7 @@ export default function EditUserProfile() {
             "email": email,
             "address": address,
             "password": password,
+            "confirmPassword": confirmPassword,
             "phone": phone,
             "dob": dob
         }, {
