@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useParams, useHistory } from "react-router-dom"
-import { Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function IndividualProduct() {
 
     let { product_id } = useParams();
     const history = useHistory();
-
     const [loaded, setLoaded] = useState(false);
     const [added, setAdded] = useState(false);
     const [name, setName] = useState("");
@@ -21,7 +20,6 @@ export default function IndividualProduct() {
     const [flavor, setFlavor] = useState('')
     const [toppings, setToppings] = useState([]);
     const [image, setImage] = useState("")
-
 
     useEffect(() => {
         const fetch = async () => {
@@ -66,14 +64,11 @@ export default function IndividualProduct() {
                     <div className="col-12 col-lg-7">
                         <h1 className="single-product-title mt-3">{name}</h1>
                         <hr></hr>
-
                         <p>{description}</p>
                         <p style={{ fontStyle: 'italic' }}>Price per roll: ${cost / 100}</p>
-
                         <div className="row description-wrapper">
                             <div className="col-12 col-xl-6 col-md-6">
                                 <h4 className="table-details">Roll Details</h4>
-
                                 <table className="table">
                                     <tbody>
                                         <tr className="table-details">
@@ -94,7 +89,6 @@ export default function IndividualProduct() {
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                             <div className="col-12 col-xl-6 col-md-6">
                                 <h4>Ingredients</h4>
@@ -118,7 +112,6 @@ export default function IndividualProduct() {
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                         <div className="addtocart-wrapper">
@@ -131,7 +124,6 @@ export default function IndividualProduct() {
                                 <br></br>
                                 <Link className="btn allbtn mt-2" to="/shoppingcart"> Checkout </Link>
                             </div>
-
                         </div>
                     </div>
                 </div>

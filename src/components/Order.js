@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useHistory, Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function Order() {
     const history = useHistory();
@@ -17,16 +17,12 @@ export default function Order() {
                     authorization: "Bearer " + localStorage.getItem('accessToken')
                 }
             })
-            console.log(response.data)
-
             setOrders(response.data.reverse())
             setLoggedIn(true)
             setLoaded(true)
-
         }
         fetch()
     }, [])
-
 
     const renderOrders = () => {
         let list = []
@@ -60,7 +56,6 @@ export default function Order() {
             <div>
                 <img className="loading" src="https://scarto.cachefly.net/labaking.com/img/hloading-alt.gif" alt="loading" />
             </div>
-
         )
     } else if (loaded === true && loggedIn === false) {
         history.push("/login")
@@ -86,7 +81,6 @@ export default function Order() {
                         </tbody>
                     </table>
                 </div>
-
             </React.Fragment>
         )
     }

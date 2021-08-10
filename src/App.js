@@ -45,8 +45,7 @@ function App() {
     const localToken = localStorage.getItem('accessToken')
     if (localToken) {
         const checkToken = async () => {
-            // see if it's still valid
-            // console.log(localToken);
+
             const response = await axios.get(BASE_URL + "/api/users/profile", {
                 headers: {
                     authorization: "Bearer " + localToken
@@ -233,14 +232,11 @@ function App() {
                             <p className="footer-header">Contact Us</p>
                             <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
                             <p className="footer-text"><i class="far fa-envelope"></i><a className="footer-link" href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
-                            <p className="footer-text"><i class="fab fa-instagram"></i> #rollwithme </p>
+                            <p className="footer-text"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/explore/tags/rollwithme/"> #rollwithme </a></p>
                         </section>
                     </div>
                 </div>
-
-
             </Router>
-
         </React.Fragment >
     )
 }

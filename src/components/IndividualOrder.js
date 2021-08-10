@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { Link, useParams, useLocation } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link, useParams, useLocation } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function IndividualOrder() {
-    const [params] = useState(new URLSearchParams(useLocation().search));
+    const [params] = useState(new URLSearchParams(useLocation().search))
     const { order_id } = useParams()
     const [isLoaded, setIsLoaded] = useState(false)
     const [orderInfo, setOrderInfo] = useState([])

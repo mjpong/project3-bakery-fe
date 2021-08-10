@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
-import { Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function ProductListing() {
 
@@ -20,12 +20,11 @@ export default function ProductListing() {
             const productsResponse = await axios.get(BASE_URL + "/api/products")
             const flavorsResponse = await axios.get(BASE_URL + "/api/products/flavors")
             const doughResponse = await axios.get(BASE_URL + "/api/products/doughtypes")
-            console.log(productsResponse.data)
+
             setProducts(productsResponse.data)
             setFlavors(flavorsResponse.data)
             setDoughType(doughResponse.data)
             setLoaded(true)
-
         }
         fetch()
     }, [])

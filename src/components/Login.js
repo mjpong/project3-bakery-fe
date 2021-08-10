@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react"
-import axios from "axios"
-import { useHistory, Link, useLocation } from "react-router-dom"
-import LoginContext from "./LoginContext"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, Link, useLocation } from "react-router-dom";
+import LoginContext from "./LoginContext";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function Login() {
     let [query] = useState(new URLSearchParams(useLocation().search));
@@ -25,9 +25,7 @@ export default function Login() {
         const response = await axios.post(BASE_URL + "/api/users/login/", {
             'email': email,
             'password': password
-
         })
-        console.log(response.status)
         if (response.status === 200) {
             localStorage.setItem("accessToken", response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
@@ -39,7 +37,6 @@ export default function Login() {
 
             setLoginError(true)
         }
-
     }
 
     return (
@@ -68,7 +65,6 @@ export default function Login() {
                     No account? <br></br>
                     <Link className="create-account" to="/register">Create one here</Link>
                 </div>
-
             </div>
 
         </React.Fragment>

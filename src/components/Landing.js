@@ -1,9 +1,8 @@
-import axios from 'axios'
-import React from 'react'
-import { Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
-
+import axios from 'axios';
+import React from 'react';
+import { Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default class Landing extends React.Component {
 
@@ -20,7 +19,6 @@ export default class Landing extends React.Component {
 
     getProduct = async () => {
         let response = await axios.get(BASE_URL + "/api/products/4")
-        console.log(response.data)
 
         this.setState({
             'name': response.data.name,
@@ -40,8 +38,6 @@ export default class Landing extends React.Component {
                         </Link>
                     </div>
                 </div>
-
-
                 <div className="about-us row p-3 mt-3">
                     <h2 className="text-center">ABOUT US</h2>
                     <hr></hr>
@@ -54,7 +50,6 @@ export default class Landing extends React.Component {
                         <div className="col-sm-6 col-12 about-us-image p-3">
                             <img src={require("../images/c1.jpg").default} width="100%" height="100%" alt="about-us" />
                         </div>
-
                     </div>
                 </div>
                 <div className="weekly-product">
@@ -76,7 +71,6 @@ export default class Landing extends React.Component {
                     </div>
                 </div>
             </React.Fragment>
-
         )
     }
 }

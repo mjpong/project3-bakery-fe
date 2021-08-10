@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import axios from "axios"
-import { useHistory, Link } from "react-router-dom"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useState } from "react";
+import axios from "axios";
+import { useHistory, Link } from "react-router-dom";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function CreateAccount() {
 
@@ -19,7 +19,6 @@ export default function CreateAccount() {
         'confirmPassword': '',
         'dob': '',
         'phone': ''
-
     })
 
     const updateFormField = (e) => {
@@ -74,7 +73,6 @@ export default function CreateAccount() {
     }
 
     const createAccount = async () => {
-
         let valid = formValidation()
         if (!valid) {
             return;
@@ -93,8 +91,6 @@ export default function CreateAccount() {
             setRegisterError(false)
             history.push("/login?email=" + formState.email)
         }
-
-
     }
 
     return (
@@ -206,7 +202,6 @@ export default function CreateAccount() {
                     </div>
                 </div>
             </div>
-
         </React.Fragment>
     )
 }

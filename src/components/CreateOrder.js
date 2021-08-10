@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import config from "../config"
-const BASE_URL = config.BASE_URL
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import config from "../config";
+const BASE_URL = config.BASE_URL;
 
 export default function CreateOrder() {
 
