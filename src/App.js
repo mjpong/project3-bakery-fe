@@ -232,7 +232,7 @@ function App() {
                             <p className="footer-header">Contact Us</p>
                             <p className="footer-text"><i class="fas fa-phone"></i> 9888 1234 </p>
                             <p className="footer-text"><i class="far fa-envelope"></i><a className="footer-link" href="mailto:letsroll@rollwithme.com"> Email Us </a></p>
-                            <p className="footer-text"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/explore/tags/rollwithme/"> #rollwithme </a></p>
+                            <p className="footer-text"><i class="fab fa-instagram"></i><a className="footer-link" href="https://www.instagram.com/explore/tags/rollwithme/"> #rollwithme </a></p>
                         </section>
                     </div>
                 </div>
