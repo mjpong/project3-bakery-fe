@@ -73,7 +73,7 @@ export default function IndividualProduct() {
                                     <tbody>
                                         <tr className="table-details">
                                             <td>
-                                                Flavor -
+                                                <strong>Flavor</strong>
                                             </td>
                                             <td>
                                                 {flavor.name} Roll
@@ -81,7 +81,7 @@ export default function IndividualProduct() {
                                         </tr>
                                         <tr className="table-details">
                                             <td>
-                                                Dough Type -
+                                                <strong>Dough Type</strong>
                                             </td>
                                             <td>
                                                 {doughtype.name}
@@ -96,7 +96,7 @@ export default function IndividualProduct() {
                                     <tbody>
                                         <tr className="table-details">
                                             <td>
-                                                Toppings -
+                                                <strong>Toppings</strong>
                                             </td>
                                             <td>
                                                 {toppings.map(p => p.name).join(", ")}
@@ -104,7 +104,7 @@ export default function IndividualProduct() {
                                         </tr>
                                         <tr className="table-details">
                                             <td>
-                                                Ingredients -
+                                                <strong>Ingredients</strong>
                                             </td>
                                             <td>
                                                 {doughtype.ingredients.map(p => p.name).join(", ")}

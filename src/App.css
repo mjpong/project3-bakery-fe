@@ -294,6 +294,10 @@
     margin: 10px;
 }
 
+.receiver-name {
+    text-transform: capitalize;
+}
+
 /* USERS */
 
 .form-error-text{

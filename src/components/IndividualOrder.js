@@ -87,7 +87,7 @@ export default function IndividualOrder() {
                         <table className="table user-order-table">
                             <tbody>
                                 <tr>
-                                    <td className="cart-header">
+                                    <td className="cart-header receiver-name">
                                         Receiver Name:
                                     </td>
                                     <td>
