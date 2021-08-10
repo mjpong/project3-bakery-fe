@@ -90,69 +90,71 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <div className="logo-wrapper row">
-                    <Link className="logo-image" to="/">
-                        <img src={require("./images/RollWithMe.png").default} height="150px" width="150px" alt="logo" />
-                    </Link>
-                </div>
-                <nav className="navbar sticky-top navbar-expand-md">
-                    <div className="container-fluid">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item active">
-                                    <Link className="nav-link" to="/">Home</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/careguide">Care Guide</Link>
-                                </li>
-                                <li className="nav-item dropdown">
-                                    <button className="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        My Account
-                                    </button>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === false ? "block" : "none" }}
-                                                to="/register">Create Account</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === false ? "block" : "none" }}
-                                                to="/login">Login</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === true ? "block" : "none" }}
-                                                to="/profile">Profile Page</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === true ? "block" : "none" }}
-                                                to="/shoppingcart">Shopping Cart</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === true ? "block" : "none" }}
-                                                to="/orders">My Orders</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="dropdown-item"
-                                                style={{ display: loggedIn === true ? "block" : "none" }}
-                                                onClick={logoutUser}
-                                                to="/">Logout</Link>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                <div>
+                    <div className="logo-wrapper row">
+                        <Link className="logo-image" to="/">
+                            <img src={require("./images/RollWithMe.png").default} height="150px" width="150px" alt="logo" />
+                        </Link>
                     </div>
-                </nav>
+                    <nav className="navbar sticky-top navbar-expand-md">
+                        <div className="container-fluid">
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li className="nav-item active">
+                                        <Link className="nav-link" to="/">Home</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/products">Cinnamon Rolls</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/careguide">Care Guide</Link>
+                                    </li>
+                                    <li className="nav-item dropdown">
+                                        <button className="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            My Account
+                                        </button>
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === false ? "block" : "none" }}
+                                                    to="/register">Create Account</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === false ? "block" : "none" }}
+                                                    to="/login">Login</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === true ? "block" : "none" }}
+                                                    to="/profile">Profile Page</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === true ? "block" : "none" }}
+                                                    to="/shoppingcart">Shopping Cart</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === true ? "block" : "none" }}
+                                                    to="/orders">My Orders</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link className="dropdown-item"
+                                                    style={{ display: loggedIn === true ? "block" : "none" }}
+                                                    onClick={logoutUser}
+                                                    to="/">Logout</Link>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
                 <div className="content-container">
                     <Switch>
                         <Route exact path="/">

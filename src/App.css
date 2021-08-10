@@ -372,6 +372,14 @@ ul.profile-list {
     .feature-img{
         text-align: center;
     }
+    .landing-product{
+        height: 175px;
+        width: 175px;
+    }
+
+    .landing-product-wrapper{
+        text-align: center;
+    }
 
     .hero-text {
         font-size: 40px;
@@ -380,6 +388,10 @@ ul.profile-list {
     .user-order-wrapper{
         display: flex;
         justify-content: center;
+    }
+
+    .header-image-wrapper{
+        display: none;
     }
 
     .profile-list {

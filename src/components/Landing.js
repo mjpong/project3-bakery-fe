@@ -58,7 +58,7 @@ export default class Landing extends React.Component {
                     <div className="landing-product-wrapper p-3 ">
                         <Link to={"/products/4"} className="product-link row">
                             <div className="col-sm-6 col-12 feature-img">
-                                <img src={this.state.image} width="300px" alt="img" />
+                                <img src={this.state.image} width="300px" alt="img" className="landing-product" />
                             </div>
                             <div className="feature-name col-sm-6 col-12">
                                 <div>
