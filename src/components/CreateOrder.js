@@ -23,7 +23,13 @@ export default function CreateOrder() {
         fetch()
     }, [])
 
-
+    const checkOut = async () => {
+        await window.location.assign(BASE_URL + "/api/checkout" + "?token=" + localStorage.getItem('accessToken') + "&address=" + address + "&name=" + name, {
+            headers: {
+                authorization: "Bearer " + localStorage.getItem('accessToken')
+            }
+        })
+    }
 
     return (
         <React.Fragment>
@@ -51,9 +57,8 @@ export default function CreateOrder() {
                             onChange={(e) => setAddress(e.target.value)}>
                         </input>
                     </div>
-                    <a href={`${BASE_URL}/api/checkout/` + localStorage.getItem("id") + "?token=" + localStorage.getItem('accessToken') + "&address=" + address + "&name=" + name}>
-                        <button className="btn allbtn">Checkout</button>
-                    </a>
+                    <button className="btn allbtn"
+                        onClick={checkOut}>Checkout</button>
                 </div>
             </div>
         </React.Fragment>
