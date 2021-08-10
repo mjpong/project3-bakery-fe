@@ -9,11 +9,23 @@ export default function ShoppingCart() {
     const [loaded, setLoaded] = useState(false)
     const [loggedIn, setLoggedIn] = useState(false)
     const [increaseFailed, setIncreaseFailed] = useState(false)
+    const [decreaseFailed, setDecreaseFailed] = useState(false)
     const [shoppingCartItem, setShoppingCartItem] = useState([])
     const [totalCost, setTotalCost] = useState(0)
 
     useEffect(() => {
-        fetch()
+        const fetchAll = async () => {
+            const response = await axios.get(BASE_URL + "/api/shoppingcart", {
+                headers: {
+                    authorization: "Bearer " + localStorage.getItem('accessToken')
+                }
+            })
+            setShoppingCartItem(response.data)
+            calculateTotal(response.data);
+            setLoggedIn(true)
+            setLoaded(true)
+        }
+        fetchAll()
     }, [])
 
     const fetch = async () => {
@@ -35,7 +47,6 @@ export default function ShoppingCart() {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
         })
-        console.log(response.data)
         if (response.data.message === "Cannot increase item") {
             setIncreaseFailed(true)
         } else {
@@ -50,6 +61,11 @@ export default function ShoppingCart() {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
         })
+        if (response.data.message === "Cannot decrease item") {
+            setDecreaseFailed(true)
+        } else {
+            setDecreaseFailed(false)
+        }
         fetch()
     }
 
@@ -74,7 +90,7 @@ export default function ShoppingCart() {
     const renderCart = () => {
         let list = []
         shoppingCartItem.map(p => {
-            list.push(
+            return list.push(
                 <React.Fragment>
                     <tr key={p.id}>
                         <td className="align-middle">
@@ -116,7 +132,7 @@ export default function ShoppingCart() {
                     <tr>
                         <td></td>
                         <td></td>
-                        <div className="col-sm-12 cart-header text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" />
+                        <div className="col-sm-12 cart-header text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" alt="shopping-cart-empty" />
                             <h5><strong>Your Cart is Empty</strong></h5>
                             <p>Add something to make me happy!</p>
                         </div>
@@ -146,7 +162,10 @@ export default function ShoppingCart() {
 
                 <div className="row container-fluid">
                     <div className="increase-failed" style={{ display: increaseFailed === true ? "block" : "none" }}>
-                        <p>Sorry, there is only left in stock.</p>
+                        <p>Sorry, this is the maximum amount left in stock.</p>
+                    </div>
+                    <div className="increase-failed" style={{ display: decreaseFailed === true ? "block" : "none" }}>
+                        <p>Sorry, you cannot go below 1, please delete the item if you don't want it anymore.</p>
                     </div>
                     <div className="cart-items-wrapper table-responsive-sm col-lg-9 col-sm-12 p-3">
                         <table className="table order-product-table">

@@ -5,7 +5,7 @@ import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function IndividualOrder() {
-    const params = new URLSearchParams(useLocation().search);
+    const [params] = useState(new URLSearchParams(useLocation().search));
     const { order_id } = useParams()
     const [isLoaded, setIsLoaded] = useState(false)
     const [orderInfo, setOrderInfo] = useState([])
@@ -16,10 +16,10 @@ export default function IndividualOrder() {
     useEffect(() => {
         const fetch = async () => {
             let status = params.get("payment");
-            if (status == "success") {
+            if (status === "success") {
                 setPaymentSuccess(true)
             }
-            if (status == "failed") {
+            if (status === "failed") {
                 setPaymentFailed(true)
             }
             const response = await axios.get(BASE_URL + "/api/orders/" + order_id, {
@@ -33,7 +33,7 @@ export default function IndividualOrder() {
 
         }
         fetch()
-    }, [])
+    }, [order_id, params])
 
 
     const renderOrderDetails = () => {
@@ -151,6 +151,7 @@ export default function IndividualOrder() {
                             </tbody>
                         </table>
                     </div>
+                    <Link className="btn allbtn" to="/orders"> Back </Link>
                 </div>
             </React.Fragment >
         )

@@ -113,9 +113,9 @@ function App() {
                                     <Link className="nav-link" to="/careguide">Care Guide</Link>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button className="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                         My Account
-                                    </a>
+                                    </button>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li className="nav-item">
                                             <Link className="dropdown-item"

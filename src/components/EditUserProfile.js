@@ -104,9 +104,9 @@ export default function EditUserProfile() {
                 authorization: "Bearer " + localStorage.getItem('accessToken')
             }
         })
-        if (response.data == "Update profile error") {
+        if (response.data === "Update profile error") {
             setUpdateProfileError(true)
-        } else if (response.data == "Passwords do not match") {
+        } else if (response.data === "Passwords do not match") {
             setConfirmPasswordFail(true)
             setUpdateProfileError(true)
         } else {

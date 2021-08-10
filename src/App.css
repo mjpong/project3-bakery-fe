@@ -74,6 +74,10 @@
     text-align: start;
 }
 
+.dropdown-toggle{
+    background: none;
+    border: none;
+}
 .nav-route-wrapper {
     padding: 5px;
 }

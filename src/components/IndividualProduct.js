@@ -11,7 +11,6 @@ export default function IndividualProduct() {
     const history = useHistory();
 
     const [loaded, setLoaded] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
     const [added, setAdded] = useState(false);
     const [name, setName] = useState("");
     const [cost, setCost] = useState(0);
@@ -19,7 +18,6 @@ export default function IndividualProduct() {
     const [doughtype, setDoughtype] = useState({
         "ingredients": []
     });
-    const [ingredients, setIngredients] = useState('');
     const [flavor, setFlavor] = useState('')
     const [toppings, setToppings] = useState([]);
     const [image, setImage] = useState("")
@@ -28,26 +26,22 @@ export default function IndividualProduct() {
     useEffect(() => {
         const fetch = async () => {
             const response = await axios.get(BASE_URL + "/api/products/" + product_id)
-            setLoaded(true)
             setName(response.data.name)
             setCost(response.data.cost)
             setDescription(response.data.description)
             setDoughtype(response.data.dough_type)
-            setIngredients(response.data.dough_type.ingredients)
             setFlavor(response.data.flavor)
             setToppings(response.data.toppings)
             setImage(response.data.image)
-            console.log(response.data)
+            setLoaded(true)
         }
         fetch();
-    }, [])
+    }, [product_id])
 
     const addToCart = async (product_id) => {
         if (localStorage.getItem("id") == null) {
-            setLoggedIn(false)
             history.push("/login")
         } else if (localStorage.getItem("id") !== null) {
-            setLoggedIn(true)
             await axios.post(BASE_URL + "/api/shoppingcart/add/" + product_id, "", {
                 headers: {
                     authorization: "Bearer " + localStorage.getItem('accessToken')

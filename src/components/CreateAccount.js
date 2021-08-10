@@ -81,12 +81,12 @@ export default function CreateAccount() {
         }
 
         const response = await axios.post(BASE_URL + '/api/users/register', formState)
-        if (response.data == "Unable to create user") {
+        if (response.data === "Unable to create user") {
             setRegisterError(true)
-        } else if (response.data == "Passwords do not match") {
+        } else if (response.data === "Passwords do not match") {
             setConfirmPasswordFail(true)
             setRegisterError(true)
-        } else if (response.data == "Email already in use") {
+        } else if (response.data === "Email already in use") {
             setEmailInUse(true)
             setRegisterError(true)
         } else {

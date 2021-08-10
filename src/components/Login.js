@@ -6,7 +6,7 @@ import config from "../config"
 const BASE_URL = config.BASE_URL
 
 export default function Login() {
-    let query = new URLSearchParams(useLocation().search);
+    let [query] = useState(new URLSearchParams(useLocation().search));
     const history = useHistory();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -19,7 +19,7 @@ export default function Login() {
             setEmail(query.get("email"));
             setCreated(true)
         }
-    }, [])
+    }, [query])
 
     async function login() {
         const response = await axios.post(BASE_URL + "/api/users/login/", {
