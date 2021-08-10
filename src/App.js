@@ -90,14 +90,14 @@ function App() {
     return (
         <React.Fragment>
             <Router>
-                <div>
+                <div className='container-fluid'>
                     <div className="logo-wrapper row">
-                        <Link className="logo-image" to="/">
+                        <Link className="logo-image p-2" to="/">
                             <img src={require("./images/RollWithMe.png").default} height="150px" width="150px" alt="logo" />
                         </Link>
                     </div>
-                    <nav className="navbar sticky-top navbar-expand-md">
-                        <div className="container-fluid">
+                    <div className="row">
+                        <nav className="navbar sticky-top navbar-expand-md">
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                             </button>
@@ -152,8 +152,8 @@ function App() {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
                 <div className="content-container">
                     <Switch>

@@ -46,6 +46,8 @@
 
 .logo-wrapper {
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-link, .nav-link:hover, .nav-link:visited, 
@@ -262,6 +264,12 @@
 
 .cart-cost-wrapper{
     background-color:#FFEFD4;
+}
+
+.continue-browsing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

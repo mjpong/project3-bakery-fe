@@ -193,7 +193,7 @@ export default function ShoppingCart() {
                             Shipping and tax calculated at checkout
                         </p>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 continue-browsing">
                         <Link className="btn allbtn" to="/products"> Continue Browsing </Link>
                     </div>
                 </div>

@@ -87,10 +87,10 @@ export default function IndividualOrder() {
                         <table className="table user-order-table">
                             <tbody>
                                 <tr>
-                                    <td className="cart-header receiver-name">
+                                    <td className="cart-header">
                                         Receiver Name:
                                     </td>
-                                    <td>
+                                    <td className="receiver-name">
                                         {orderInfo.receiver_name}
                                     </td>
                                 </tr>

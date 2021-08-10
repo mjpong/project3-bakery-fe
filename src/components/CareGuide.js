@@ -8,7 +8,7 @@ export default function CareGuide() {
                 <h1 className="care-title text-center"> ROLL WITH CARE </h1>
                 <hr></hr>
                 <div className="row">
-                    <div className="col-sm-6 col-md-12 col-lg-12 p-3 care-guide-text">
+                    <div className="col-12 p-3 care-guide-text">
                         <p>
                             There’s nothing like the smell of freshly baked cinnamon rolls.
                             But, what happens when you can’t eat them all yourself?
@@ -22,15 +22,16 @@ export default function CareGuide() {
                         </p>
 
                     </div>
-                    <div className="reheat-instructions col-lg-6 col-sm-12 col-md-12">
-                        <h4>Reheating Instructions: </h4>
-                        <p>Oven: <br></br>
+                    <h4>Reheating Instructions: </h4>
+                    <div className="reheat-instructions col-lg-6 col-sm-12 col-md-12 p-2">
+
+                        <p><strong>Oven: </strong><br></br>
                             Preheat your oven to 350°F. Place your cinnamon rolls in a baking dish and cover with foil. <br></br>
                             Heat the cinnamon rolls for 10 minutes or until they are warm and the frosting has softened.
                         </p>
                     </div>
                     <div className="reheat-instructions col-lg-6 col-sm-12 col-md-12">
-                        <p>Microwave: <br></br>
+                        <p><strong>Microwave: </strong><br></br>
                             Place your cinnamon rolls on a microwave-safe dish. <br></br>
                             Heat for 30 seconds. Check the cinnamon rolls and repeat until they’re thoroughly heated.</p>
                     </div>
