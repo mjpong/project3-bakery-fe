@@ -26,6 +26,16 @@ Live Admin Site URL: https://mjp-tgc12-project3.herokuapp.com/
 
 Live Consumer Site URL: https://rollwithme.netlify.app/ 
 
+## Testing User Accounts
+**Please make sure that after all testing is done, that the user details are reverted to the original.**
+**Especially if the password has been updated, please change it back.**
+If there are any errors and password cannot be reverted back to original, please reach out to let me know.
+
+|Category |Email Address | Password |
+|:---------|:----------------------|:---------------------|
+|Customer Side  | tester@rollwithme.com | testing123 |
+|Admin Side | admin@rollwithme.com | admin123 |
+
 ## Justification
 The purpose of this website is for potential home business owners / bakers to see what an ecommerce website would look like in the consumer as well as admin side. As most businesses are moving online and not in an actual shop, it is a platform for consumers who want to buy cinnamon rolls (or pastries) online.
 
@@ -198,16 +208,6 @@ FontAwesome icons were used in the footer and search filters in order to show a 
 
 # Testing
 ## Functionality Testing 
-
-## Testing User Accounts
-**Please make sure that after all testing is done, that the user details are reverted to the original.**
-**Especially if the password has been updated, please change it back.**
-If there are any errors and password cannot be reverted back to original, please reach out to let me know.
-
-|Category |Email Address | Password |
-|:---------|:----------------------|:---------------------|
-|Customer Side  | tester@rollwithme.com | testing123 |
-|Admin Side | admin@rollwithme.com | admin123 |
 
 ## View and Search Filter - Consumer & Vendor Side (CS & VS)
 |Category |Input/Actions/Items | Output/Errors |
