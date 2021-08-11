@@ -114,7 +114,7 @@ Navigation between different elements can also be done using the nav bar provide
 2. Product listing
     * All the products that is provided for users to choose and add to cart
 3. Product details
-    * Specific details such as what ingredients were used to make the specific product that was clicked
+    * Specific details such as if there is stock available, what ingredients were used to make the specific product that was clicked
 4. Reheating instructions
     * Reminders for users who might want to reheat it and different ways to do it
 5. Add to shopping cart
@@ -149,7 +149,7 @@ Navigation between different elements can also be done using the nav bar provide
     * Ingredients
 2. CRUD on all of the above
 3. Search function for all product names that are not case sensitive
-4. Filter function for all the other categories 
+4. Filter function for all the other categories such as flavor and dough type only
 
 ### Orders
 1. List and details of all the orders made by every user on the customer side
@@ -180,6 +180,7 @@ Some future implementations that I would like to add to this web application:
 4. Admin roles can deactivate users
 5. DOB is tough to scroll down if year is not close to the current year, see if there any css changes
 6. Feature product that rotates on random each week or a function in the backend for admin to change
+7. If shopping cart is empty, users cannot click on checkout button 
 
 # Surface
 ## Color
@@ -195,6 +196,81 @@ This is the main color scheme of the logo as well as the landing page. For the o
 ## Icons
 FontAwesome icons were used in the footer and search filters in order to show a contrast from just the words and to give a different style in the web page.
 
+# Testing
+## Functionality Testing 
+
+## Testing User Accounts
+**Please make sure that after all testing is done, that the user details are reverted to the original.**
+**Especially if the password has been updated, please change it back.**
+If there are any errors and password cannot be reverted back to original, please reach out to let me know.
+
+|Category |Email Address | Password |
+|:---------|:----------------------|:---------------------|
+|Customer Side  | tester@rollwithme.com | testing123 |
+|Admin Side | admin@rollwithme.com | admin123 |
+
+## View and Search Filter - Consumer & Vendor Side (CS & VS)
+|Category |Input/Actions/Items | Output/Errors |
+|:---------|:----------------------|:---------------------|
+|Overall CS | On Load | All products should be shown with name and price |
+|Overall VS | On Load | All products should be shown with name and category tags, other categories are also shown in the tabs |
+|Filter & Search Bar | Typing into "Search by Product Name" | The space will capture the text, and will not be searched until clicked search |
+|Filter & Search Bar | Search criteria | Product names only can be searched, flavor or price or dough types do not work |
+|Filter & Search Bar | Search criteria | Product names are not case-sensitive |
+|Filter & Search Bar | On click | Same layout of products showing, but just the ones with the words in the name of product |
+|Search Bar | Typing into "Search By Product Name" | After searching, if the text area is cleared and search button is clicked again, it shows all results |
+|Search Bar | Search criteria | Search results show for entries with the full or partial name in it, e.g. "pecan" or "pecan party" shows "The Pecan Party" product |
+|Search Bar | Search criteria | There are results for "sweet" as it is in a product name, and it is not searching as a flavor |
+|Search Bar VS | Price Search criteria | Results for different price shown even if it is just the min or max that is filled in |
+|Filter Search | Filter Flavor | Drop down will change to the selected flavor |
+|Filter Search | Filter Dough Type | Drop down will change to the selected dough type |
+|Filter Search VS | Filter Toppings | Drop down will change to the selected topping |
+|Filter Search | All 3 criteria met | Items will search with 3 criteria, or just 2 criteria, or just 1 as well when search is clicked|
+|Reset Button | On Click | Resets all criteria and shows all cinnamon rolls again|
+
+## Shopping Cart and Checkout - Consumer Side
+|Category |Input/Actions/Items | Output/Errors |
+|:---------|:----------------------|:---------------------|
+|Shopping Cart | On Load | "Your cart is empty" image if there are no items in the cart |
+|Shopping Cart | On Load | Items are listed out in the table, according to the correct headers |
+|Shopping Cart | Quantity Count on Increase | Whenever the add btn is clicked, one quantity is added, the total price and the subtotal also changes accordingly |
+|Shopping Cart | Quantity Count on Decrease | Whenever the minus btn is clicked, one quantity is decreased, the total price and the subtotal also changes accordingly |
+|Shopping Cart | Total / Subtotal | Total and subtotal is different according to the quantity of the products |
+|Continue Browsing| On Click | Brings customers back to the products browse page to continue to add to cart |
+|Checkout | On click | When clicked, leads the customer to a "Name and Address" page which they can fill in a name and address that is not theirs if this is a gift or delivery for someone else | 
+|Stripe Checkout | Payment | After payment is done and completed, users are sent back to their orders page with a "successful" or "unsuccessful" message based on payment |
+
+## Orders - Consumer & Vendor Side (CS & VS)
+|Category |Input/Actions/Items | Output/Errors |
+|:---------|:----------------------|:---------------------|
+|Order Page CS |Order Listing | The orders of the specific are listed from the most recent to the bottom, if no completed date, it will show "in progress" |
+|Order Page CS |Order Details | Same layout as shopping cart for the products details, rendered |
+|Order Page VS |Order Listing | All orders of all users are listed from most recent, status is shown instead of progress |
+|Order Page VS | Filter and Search Bar | Receiver names are not case-sensitive for search |
+|Order Page VS | Filter Order Status | Drop down will change to the selected status |
+|Order Page VS | Search Bar | Order ID, User Id, Cost all will be shown and results shown per criteria |
+|Order Page VS | Update Order Status | Order status can be updated accordingly, if order status changed to completed, then date will be set to the same date |
+|Order Page VS | Delete Button | Order will be deleted off the database, gone from customer's side as well |
+
+## Profile Page - Consumer & Vendor Side (CS & VS)
+|Category |Input/Actions/Items | Output/Errors |
+|:---------|:----------------------|:---------------------|
+|Create Account| Form Validation | Password must be 8-20 characters |
+|Create Account| Form Validation | Error message shows if confirm password is not the same as password|
+|Create Account| Form Validation | If form is left empty, form validation messages will show and not allow to create |
+|Profile Page| On load | Users information that they have filed in while creating account |
+|Update Account| On load | Same create account form with user's details filled in form |
+|Update Account| Form Validation | Same validations will show if filled in the form incorrectly as create account |
+|Create and Update Account| Successful Creation / Updating | Will redirect users to re-login to make sure the password is correct|
+
+## Mobile Responsive - Consumer & Vendor Side (CS & VS)
+|Category |Input/Actions/Items | Output/Errors |
+|:---------|:----------------------|:---------------------|
+| Navbar | Nav items | Move to a collapsable div when mobile responsive | 
+| Product Listing CS | Product Images | Bootstrap columns are added for product images to show it mobile responsively |
+| Product, Order Listing VS | Tables | Responsive tables for orders and products so all information can be shown |
+| Shopping Cart CS | Tables | Responsive tables to show products for shopping cart |
+| All images CS | Images | All images are adjusted smaller when on a smaller size screen |
 
 # Technologies Used
 * HTML
@@ -242,7 +318,7 @@ Apart from React default package. Ensure you have the following depencencies.
 * bootstrap
 * react-router-dom
 
-**Steps for deployment:**
+Steps for deployment:
 1. All edits were added, commited, and pushed to GitHub via Gitpod.
 2. In the terminal, type `yarn build`
 3. Download the build folder to desktop.
