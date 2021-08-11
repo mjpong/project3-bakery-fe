@@ -14,7 +14,7 @@ export default function CareGuide() {
                             But, what happens when you can’t eat them all yourself?
                             There’s a bit of an art to cinnamon roll storage.
                             If done improperly, they’ll dry out.
-                            Follow the below tips on how to store cinnamon rolls, and you’ll be sure to have a moist treat for weeks to come!
+                            Follow the tips below on how to store cinnamon rolls, and you’ll be sure to have a moist treat for weeks to come!
                             Upon delivery, you can keep them at room temperature for a few days. Place the unfinished cinnamon rolls on a plate and cover with tin foil.
                             Set aside until you’re ready to chow down.
                             For the quickest reheat, spread butter over each cinnamon roll and microwave for 1 minute on high.

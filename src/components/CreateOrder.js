@@ -39,7 +39,8 @@ export default function CreateOrder() {
                     <hr></hr>
                 </div>
                 <div className="row">
-                    <p>Please fill out receiver details accordingly if different from user: </p>
+                    <p> Sending a gift or delivery to a friend? </p>
+                    <p> Please fill out receiver details accordingly if different from user: </p>
                     <div className="create-account-form col-lg-5 col-md-5 col-sm-12 mb-4">
                         <div className="form-label">Name: </div>
                         <input className="form-control" type="text"
