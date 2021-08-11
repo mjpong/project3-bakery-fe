@@ -127,6 +127,7 @@ export default function ShoppingCart() {
             )
         })
         if (list[0] === undefined) {
+
             list.push(
                 <React.Fragment>
                     <tr>

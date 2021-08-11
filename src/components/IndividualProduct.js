@@ -20,6 +20,7 @@ export default function IndividualProduct() {
     const [flavor, setFlavor] = useState('')
     const [toppings, setToppings] = useState([]);
     const [image, setImage] = useState("")
+    const [stock, setStock] = useState(0)
 
     useEffect(() => {
         const fetch = async () => {
@@ -31,6 +32,7 @@ export default function IndividualProduct() {
             setFlavor(response.data.flavor)
             setToppings(response.data.toppings)
             setImage(response.data.image)
+            setStock(response.data.stock)
             setLoaded(true)
         }
         fetch();
@@ -49,6 +51,26 @@ export default function IndividualProduct() {
             setLoaded(true)
         }
     }
+
+    const numberOfStock = () => {
+        if (15 > stock) {
+            return (
+                <p style={{ fontStyle: 'italic' }}>
+                    There is limited stock left!
+                </p>
+            )
+        } else if (stock >= 15) {
+            return (
+                <p style={{ fontStyle: 'italic' }}>
+                    There is stock available!
+                </p>
+            )
+        } else {
+            return null;
+        }
+    }
+
+
 
     if (loaded === false) {
         return (
@@ -113,6 +135,9 @@ export default function IndividualProduct() {
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div className="stock-available">
+                            {numberOfStock()}
                         </div>
                         <div className="addtocart-wrapper">
                             <button className="btn allbtn" onClick={() => addToCart(product_id)}>Add to Cart</button>
